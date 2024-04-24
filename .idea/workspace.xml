@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1d6d572-1f0a-4852-8f72-beb28a444c8d" name="Changes" comment="Comienzo del proyecto primer commit con constructores etc">
+    <list default="true" id="f1d6d572-1f0a-4852-8f72-beb28a444c8d" name="Changes" comment="CustomersDAO &quot;Terminao&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/CustomersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/CustomersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/DAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,11 +21,24 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -39,28 +50,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.executor": "Run",
-    "Application.Executable.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.ProyectoFinal [package].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/santi/IdeaProjects/ProyectoFinal/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Executable.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ProyectoFinal [package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/santi/IdeaProjects/ProyectoFinal/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\santi\IdeaProjects\ProyectoFinal\src" />
@@ -89,6 +100,10 @@
       <workItem from="1713858996718" duration="6798000" />
       <workItem from="1713940024980" duration="2577000" />
       <workItem from="1713953410420" duration="3719000" />
+      <workItem from="1713957890710" duration="45000" />
+      <workItem from="1713964047165" duration="713000" />
+      <workItem from="1713984094091" duration="629000" />
+      <workItem from="1713985893075" duration="1157000" />
     </task>
     <task id="LOCAL-00001" summary="Comienzo del proyecto primer commit con constructores etc">
       <option name="closed" value="true" />
@@ -98,7 +113,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713954404307</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="CustomersDAO &quot;Terminao&quot;">
+      <option name="closed" value="true" />
+      <created>1713957915777</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713957915777</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,7 +138,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -129,6 +152,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Comienzo del proyecto primer commit con constructores etc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comienzo del proyecto primer commit con constructores etc" />
+    <MESSAGE value="CustomersDAO &quot;Terminao&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="CustomersDAO &quot;Terminao&quot;" />
   </component>
 </project>
