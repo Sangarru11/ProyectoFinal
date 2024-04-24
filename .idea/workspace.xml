@@ -4,34 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1d6d572-1f0a-4852-8f72-beb28a444c8d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/connection.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/Executable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/Utils/XMLManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/AboutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/AppController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/Scenes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/View.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/Connection/ConnectionMariaDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/Connection/ConnectionProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/CustomersDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/EmployeeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/MechanicDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/RepairsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/entity/Customers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/entity/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/entity/Mechanic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/entity/Repairs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+    <list default="true" id="f1d6d572-1f0a-4852-8f72-beb28a444c8d" name="Changes" comment="Comienzo del proyecto primer commit con constructores etc">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/CustomersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/CustomersDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/DAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +25,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -63,6 +42,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.App.executor": "Run",
+    "Application.Executable.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.ProyectoFinal [package].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -108,11 +88,47 @@
       <workItem from="1713857955731" duration="1017000" />
       <workItem from="1713858996718" duration="6798000" />
       <workItem from="1713940024980" duration="2577000" />
-      <workItem from="1713953410420" duration="705000" />
+      <workItem from="1713953410420" duration="3719000" />
     </task>
+    <task id="LOCAL-00001" summary="Comienzo del proyecto primer commit con constructores etc">
+      <option name="closed" value="true" />
+      <created>1713954404307</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713954404307</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Comienzo del proyecto primer commit con constructores etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comienzo del proyecto primer commit con constructores etc" />
   </component>
 </project>
