@@ -1,12 +1,9 @@
 package com.github.Sangarru11.ProyectoFinal;
 
+import com.github.Sangarru11.ProyectoFinal.View.MainController;
 import com.github.Sangarru11.ProyectoFinal.View.Scenes;
-import com.github.Sangarru11.ProyectoFinal.View.AppController;
-import com.github.Sangarru11.ProyectoFinal.View.Controller;
 import com.github.Sangarru11.ProyectoFinal.View.View;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -19,15 +16,15 @@ public class App extends Application {
 
     public static Scene scene;
     public static Stage stage;
-    public static AppController currentController;
+    public static MainController currentController;
 
     //este el es primer método que se ejecuta al abrir la primera ventana
     @Override
     public void start(Stage stage) throws IOException {
         //view/layout.fxml
-        View view = AppController.loadFXML(Scenes.ROOT);
+        View view = MainController.loadFXML(Scenes.MAIN);
         scene = new Scene(view.scene, 640, 480);
-        currentController = (AppController) view.controller;
+        currentController = (MainController) view.controller;
         currentController.onOpen(null);
         stage.setScene(scene);
         stage.show();

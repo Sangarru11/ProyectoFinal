@@ -1,35 +1,63 @@
 package com.github.Sangarru11.ProyectoFinal.View;
-
 import com.github.Sangarru11.ProyectoFinal.App;
+import com.github.Sangarru11.ProyectoFinal.model.DAO.CustomersDAO;
+import com.github.Sangarru11.ProyectoFinal.model.entity.Customers;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class AppController extends Controller implements Initializable {
+
+public class MainController extends Controller implements Initializable {
+
+    @FXML
+    private TableColumn<Customers,String> columnPassword;
+    @FXML
+    private TableColumn<Customers,String> columnName;
+
+    private Controller centerController;
+
+    private ObservableList<Customers> customers;
     @FXML
     private BorderPane borderPane;
-    private Controller centerController;
 
     @Override
     public void onOpen(Object input) throws IOException {
-        //Al abrir este controlador que cargue main en el centro
         changeScene(Scenes.MAIN,null);
     }
 
+
     public void changeScene(Scenes scene,Object data) throws IOException {
-        View view = loadFXML(scene);
-        borderPane.setCenter(view.scene);
-        this.centerController = view.controller;
-        this.centerController.onOpen(data);
+
+    }
+
+    @Override
+    public void onClose(Object output) {
+
+    }
+
+    public void saveAuthor(Customers newAuthor){
+        CustomersDAO.build().save(newAuthor);
+        this.customers.add(newAuthor);
+
     }
 
     public void openModal(Scenes scene, String title,Controller parent, Object data) throws IOException {
@@ -46,17 +74,10 @@ public class AppController extends Controller implements Initializable {
 
     }
 
-
-    @Override
-    public void onClose(Object output) {
-        //nothing to do
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
     public static View loadFXML(Scenes scenes) throws IOException {
         String url = scenes.getURL();
         System.out.println(url);
@@ -78,5 +99,10 @@ public class AppController extends Controller implements Initializable {
     private void goToAbout() throws IOException {
         System.out.println(Scenes.ABOUT);
         changeScene(Scenes.ABOUT,null);
+    }
+
+    @FXML
+    private void addCustomers() throws IOException {
+
     }
 }

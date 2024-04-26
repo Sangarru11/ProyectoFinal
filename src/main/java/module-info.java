@@ -5,5 +5,8 @@ module com.github.Sangarru11.ProyectoFinal {
     requires java.xml.bind;
 
     opens com.github.Sangarru11.ProyectoFinal to javafx.fxml;
+    opens com.github.Sangarru11.ProyectoFinal.View to javafx.fxml,java.xml.bind;
+
     exports com.github.Sangarru11.ProyectoFinal;
+    exports com.github.Sangarru11.ProyectoFinal.View;
 }
