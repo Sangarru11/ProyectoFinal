@@ -6,6 +6,8 @@ module com.github.Sangarru11.ProyectoFinal {
 
     opens com.github.Sangarru11.ProyectoFinal to javafx.fxml;
     opens com.github.Sangarru11.ProyectoFinal.View to javafx.fxml,java.xml.bind;
+    opens com.github.Sangarru11.ProyectoFinal.model.Connection to java.xml.bind;
+
 
     exports com.github.Sangarru11.ProyectoFinal;
     exports com.github.Sangarru11.ProyectoFinal.View;

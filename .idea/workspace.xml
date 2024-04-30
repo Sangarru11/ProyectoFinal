@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1d6d572-1f0a-4852-8f72-beb28a444c8d" name="Changes" comment="CustomersDAO &quot;Terminao&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/about.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/formAuthor.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/layout.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/main.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/Test/TestInsert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/Test/loadConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/Test/testConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/AppController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/Scenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/Scenes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/EmployeeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/connection.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/CustomersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/CustomersDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/entity/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/entity/Customers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,11 +65,14 @@
   "keyToString": {
     "Application.App.executor": "Run",
     "Application.Executable.executor": "Run",
+    "Application.TestInsert.executor": "Run",
+    "Application.loadConnection.executor": "Run",
+    "Application.testConnection.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.ProyectoFinal [package].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "CustomersDAO",
+    "git-widget-placeholder": "ArregladosErroresFxml",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/santi/IdeaProjects/ProyectoFinal/src/main/resources",
     "node.js.detected.package.eslint": "true",
@@ -79,7 +80,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
@@ -124,7 +125,10 @@
       <workItem from="1713985893075" duration="1157000" />
       <workItem from="1714048777006" duration="1072000" />
       <workItem from="1714066338058" duration="1686000" />
-      <workItem from="1714112769866" duration="6639000" />
+      <workItem from="1714112769866" duration="8775000" />
+      <workItem from="1714372755248" duration="71000" />
+      <workItem from="1714411026699" duration="3103000" />
+      <workItem from="1714461655202" duration="4084000" />
     </task>
     <task id="LOCAL-00001" summary="Comienzo del proyecto primer commit con constructores etc">
       <option name="closed" value="true" />
@@ -175,5 +179,15 @@
     <MESSAGE value="Comienzo del proyecto primer commit con constructores etc" />
     <MESSAGE value="CustomersDAO &quot;Terminao&quot;" />
     <option name="LAST_COMMIT_MESSAGE" value="CustomersDAO &quot;Terminao&quot;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLIntegrityConstraintViolationException" package="java.sql" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
