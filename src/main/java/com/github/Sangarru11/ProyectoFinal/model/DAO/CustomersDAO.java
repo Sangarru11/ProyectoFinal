@@ -2,6 +2,7 @@ package com.github.Sangarru11.ProyectoFinal.model.DAO;
 
 import com.github.Sangarru11.ProyectoFinal.model.Connection.ConnectionMariaDB;
 import com.github.Sangarru11.ProyectoFinal.model.entity.Customers;
+import com.github.Sangarru11.ProyectoFinal.model.entity.Repairs;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -86,6 +87,12 @@ public class CustomersDAO implements DAO<Customers,String> {
         }
         return result;
     }
+
+    @Override
+    public Repairs findByDate(String key) {
+        return null;
+    }
+
     @Override
     public Customers findByDNI(String key) {
         Customers result = null;

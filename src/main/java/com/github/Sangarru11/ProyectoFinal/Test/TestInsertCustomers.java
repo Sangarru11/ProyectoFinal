@@ -3,9 +3,7 @@ package com.github.Sangarru11.ProyectoFinal.Test;
 import com.github.Sangarru11.ProyectoFinal.model.DAO.CustomersDAO;
 import com.github.Sangarru11.ProyectoFinal.model.entity.Customers;
 
-import java.util.ArrayList;
-
-public class TestInsert {
+public class TestInsertCustomers {
     public static void main(String[] args) {
         Customers customer = new Customers();
         customer.setIdCustomer("1");
