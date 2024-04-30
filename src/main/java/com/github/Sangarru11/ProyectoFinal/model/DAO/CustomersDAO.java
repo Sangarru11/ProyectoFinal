@@ -10,12 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CustomersDAO implements DAO<Customers,String> {
-    private static final String FINDBYDNI = "SELECT * FROM customers WHERE dni = ?";
-    private static final String FINDBYID = "SELECT * FROM customers WHERE idCustomer = ?";
-    private static final String FINDBYNAME = "SELECT * FROM customers WHERE name = ?";
-    private static final String INSERT = "INSERT INTO customers VALUES(?,?,?,?)";
-    private static final String UPDATE = "UPDATE customers SET name = ?, phoneNumber = ?, plateNumber = ? WHERE dni = ?";
-    private static final String DELETE = "DELETE FROM customers WHERE idCustomer = ?";
+    private static final String FINDBYDNI = "SELECT c.idCustomer, c.dni, c.name, c.phoneNumber, c.plateNumber FROM customers AS c WHERE dni=?";
+    private static final String FINDBYID = "SELECT c.idCustomer, c.dni, c.name, c.phoneNumber, c.plateNumber FROM customers AS c WHERE c.idCustomer = ?";
+    private static final String FINDBYNAME = "SELECT c.idCustomer, c.dni, c.name, c.phoneNumber, c.plateNumber FROM customers WHERE name = ?";
+    private static final String INSERT = "INSERT INTO customers (dni, name, phoneNumber, plateNumber) VALUES (?, ?, ?, ?)";
+    private static final String UPDATE = "UPDATE customers SET name=? WHERE idCustomer=?";
+    private static final String DELETE = "DELETE FROM customers WHERE idCustomer=?";
 
     private Connection connection;
 
@@ -36,7 +36,6 @@ public class CustomersDAO implements DAO<Customers,String> {
                         pst.setString(2, entity.getName());
                         pst.setString(3, entity.getPhoneNumber());
                         pst.setString(4, entity.getPlateNumber());
-                        pst.setString(5, entity.getIdCustomer());
                         pst.executeUpdate();
                     } catch (SQLException e) {
                         e.printStackTrace();

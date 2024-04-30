@@ -15,7 +15,7 @@ public class Customers {
     public Customers(String idCustomer, String name, String phoneNumber, String DNI, String plateNumber) {
         this.idCustomer = idCustomer;
         this.name = name;
-        PhoneNumber = phoneNumber;
+        this.PhoneNumber = phoneNumber;
         this.DNI = DNI;
         this.plateNumber = plateNumber;
     }
