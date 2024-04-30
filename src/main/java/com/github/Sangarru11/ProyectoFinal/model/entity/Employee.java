@@ -6,14 +6,19 @@ public class Employee {
     private String idEmployee;
     private String name;
     private String DNI;
+    private String password;
+    private String plateNumber;
 
     public Employee() {
+
     }
 
-    public Employee(String idEmployee, String name, String DNI) {
+    public Employee(String idEmployee, String name, String DNI, String password, String plateNumber) {
         this.idEmployee = idEmployee;
         this.name = name;
         this.DNI = DNI;
+        this.password = password;
+        this.plateNumber = plateNumber;
     }
 
     public String getIdEmployee() {
@@ -40,17 +45,33 @@ public class Employee {
         this.DNI = DNI;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Objects.equals(idEmployee, employee.idEmployee) && Objects.equals(name, employee.name) && Objects.equals(DNI, employee.DNI);
+        return Objects.equals(idEmployee, employee.idEmployee) && Objects.equals(name, employee.name) && Objects.equals(DNI, employee.DNI) && Objects.equals(password, employee.password) && Objects.equals(plateNumber, employee.plateNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idEmployee, name, DNI);
+        return Objects.hash(idEmployee, name, DNI, password, plateNumber);
     }
 
     @Override
@@ -59,6 +80,8 @@ public class Employee {
                 "idEmployee='" + idEmployee + '\'' +
                 ", name='" + name + '\'' +
                 ", DNI='" + DNI + '\'' +
+                ", pasword='" + password + '\'' +
+                ", plateNumber='" + plateNumber + '\'' +
                 '}';
     }
 }

@@ -5,19 +5,19 @@ import java.util.Objects;
 public class Repairs {
 
     private String idRepair;
-    private String description;
     private String date;
     private String status;
+    private String description;
     private String plateNumber;
 
     public Repairs() {
     }
 
-    public Repairs(String idRepair, String description, String date, String status, String plateNumber) {
+    public Repairs(String idRepair, String date, String status, String description, String plateNumber) {
         this.idRepair = idRepair;
-        this.description = description;
         this.date = date;
         this.status = status;
+        this.description = description;
         this.plateNumber = plateNumber;
     }
 
@@ -27,14 +27,6 @@ public class Repairs {
 
     public void setIdRepair(String idRepair) {
         this.idRepair = idRepair;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getDate() {
@@ -53,6 +45,14 @@ public class Repairs {
         this.status = status;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getPlateNumber() {
         return plateNumber;
     }
@@ -66,21 +66,21 @@ public class Repairs {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Repairs repairs = (Repairs) o;
-        return Objects.equals(idRepair, repairs.idRepair) && Objects.equals(description, repairs.description) && Objects.equals(date, repairs.date) && Objects.equals(status, repairs.status) && Objects.equals(plateNumber, repairs.plateNumber);
+        return Objects.equals(idRepair, repairs.idRepair) && Objects.equals(date, repairs.date) && Objects.equals(status, repairs.status) && Objects.equals(description, repairs.description) && Objects.equals(plateNumber, repairs.plateNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idRepair, description, date, status, plateNumber);
+        return Objects.hash(idRepair, date, status, description, plateNumber);
     }
 
     @Override
     public String toString() {
         return "Repairs{" +
                 "idRepair='" + idRepair + '\'' +
-                ", description='" + description + '\'' +
                 ", date='" + date + '\'' +
                 ", status='" + status + '\'' +
+                ", description='" + description + '\'' +
                 ", plateNumber='" + plateNumber + '\'' +
                 '}';
     }
