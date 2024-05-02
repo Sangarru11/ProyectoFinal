@@ -1,5 +1,6 @@
 package com.github.Sangarru11.ProyectoFinal;
 
+import com.github.Sangarru11.ProyectoFinal.View.Controller;
 import com.github.Sangarru11.ProyectoFinal.View.MainController;
 import com.github.Sangarru11.ProyectoFinal.View.Scenes;
 import com.github.Sangarru11.ProyectoFinal.View.View;
@@ -16,7 +17,7 @@ public class App extends Application {
 
     public static Scene scene;
     public static Stage stage;
-    public static MainController currentController;
+    public static Controller currentController;
 
     //este el es primer método que se ejecuta al abrir la primera ventana
     @Override
@@ -24,8 +25,9 @@ public class App extends Application {
         //view/layout.fxml
         View view = MainController.loadFXML(Scenes.MAIN);
         scene = new Scene(view.scene, 640, 480);
-        currentController = (MainController) view.controller;
+        currentController = view.controller;
         currentController.onOpen(null);
+        App.stage = stage;
         stage.setScene(scene);
         stage.show();
     }

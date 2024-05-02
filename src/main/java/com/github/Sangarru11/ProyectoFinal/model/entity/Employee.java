@@ -62,11 +62,13 @@ public class Employee {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Objects.equals(idEmployee, employee.idEmployee) && Objects.equals(name, employee.name) && Objects.equals(DNI, employee.DNI) && Objects.equals(password, employee.password) && Objects.equals(plateNumber, employee.plateNumber);
+    public boolean equals(Object object) {
+        boolean isEquals = false;
+        if (this == object) isEquals = true;
+        if (object == null || getClass() != object.getClass()) isEquals = false;
+        Employee employee = (Employee) object;
+        isEquals = Objects.equals(idEmployee, employee.idEmployee) && Objects.equals(name, employee.name) && Objects.equals(DNI, employee.DNI) && Objects.equals(password, employee.password) && Objects.equals(plateNumber, employee.plateNumber);
+        return isEquals;
     }
 
     @Override
