@@ -62,11 +62,13 @@ public class Repairs {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Repairs repairs = (Repairs) o;
-        return Objects.equals(idRepair, repairs.idRepair) && Objects.equals(date, repairs.date) && Objects.equals(status, repairs.status) && Objects.equals(description, repairs.description) && Objects.equals(plateNumber, repairs.plateNumber);
+    public boolean equals(Object object) {
+        boolean isEquals = false;
+        if (this == object) isEquals = true;
+        if (object == null || getClass() != object.getClass()) isEquals = false;
+        Repairs repairs = (Repairs) object;
+        isEquals = Objects.equals(idRepair, repairs.idRepair) && Objects.equals(date, repairs.date) && Objects.equals(status, repairs.status) && Objects.equals(description, repairs.description) && Objects.equals(plateNumber, repairs.plateNumber);
+        return isEquals;
     }
 
     @Override

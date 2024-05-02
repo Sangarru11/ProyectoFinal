@@ -59,13 +59,14 @@ public class Customers {
     public void setPlateNumber(String plateNumber) {
         this.plateNumber = plateNumber;
     }
-
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Customers customers = (Customers) o;
-        return Objects.equals(idCustomer, customers.idCustomer) && Objects.equals(name, customers.name) && Objects.equals(PhoneNumber, customers.PhoneNumber) && Objects.equals(DNI, customers.DNI) && Objects.equals(plateNumber, customers.plateNumber);
+    public boolean equals(Object object) {
+        boolean isEquals = false;
+        if (this == object) isEquals = true;
+        if (object == null || getClass() != object.getClass()) isEquals = false;
+        Customers customers = (Customers) object;
+        isEquals = Objects.equals(idCustomer, customers.idCustomer) && Objects.equals(name, customers.name) && Objects.equals(PhoneNumber, customers.PhoneNumber) && Objects.equals(DNI, customers.DNI) && Objects.equals(plateNumber, customers.plateNumber);
+        return isEquals;
     }
 
     @Override

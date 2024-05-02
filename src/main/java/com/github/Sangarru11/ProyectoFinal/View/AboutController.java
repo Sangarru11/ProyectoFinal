@@ -26,6 +26,6 @@ public class AboutController extends Controller implements Initializable {
 
     @FXML
     private void goToMain() throws IOException {
-        App.currentController.changeScene(Scenes.MAIN,null);
+       MainController.changeScene(Scenes.MAIN,null);
     }
 }

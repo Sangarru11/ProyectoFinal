@@ -3,7 +3,7 @@ package com.github.Sangarru11.ProyectoFinal.View;
 public enum Scenes {
     ROOT("View/layout.fxml"),
     MAIN("View/main.fxml"),
-    ABOUT("View/about.fxml"),
+    PrinPanel("View/PrincipalPanel.fxml"),
     FORMAUTHOR("View/formAuthor.fxml");
 
     private String url;

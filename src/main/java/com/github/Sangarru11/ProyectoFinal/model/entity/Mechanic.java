@@ -41,11 +41,13 @@ public class Mechanic {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Mechanic mechanic = (Mechanic) o;
-        return Objects.equals(idMechanic, mechanic.idMechanic) && Objects.equals(name, mechanic.name) && Objects.equals(Direction, mechanic.Direction);
+    public boolean equals(Object object) {
+        boolean isEquals = false;
+        if (this == object) isEquals = true;
+        if (object == null || getClass() != object.getClass()) isEquals = false;
+        Mechanic mechanic = (Mechanic) object;
+        isEquals = Objects.equals(idMechanic, mechanic.idMechanic) && Objects.equals(name, mechanic.name) && Objects.equals(Direction, mechanic.Direction);
+        return isEquals;
     }
 
     @Override

@@ -13,7 +13,8 @@ import java.sql.SQLException;
 public class EmployeeDAO implements DAO<Employee,String> {
     private static final String FINDBYDNI = "SELECT e.idEmployee, e.dni, e.name, e.password, e.plateNumber FROM employees AS e WHERE dni=?";
     private static final String FINDBYID = "SELECT e.idEmployee, e.dni, e.name, e.password, e.plateNumber FROM employees AS e WHERE e.idEmployee = ?";
-    private static final String FINDBYNAME = "SELECT e.idEmployee, e.dni, e.name, e.password, e.plateNumber FROM employees WHERE name = ?";
+    private static final String FINDBYNAME = "SELECT e.IdEmployee, e.DNI, e.name, e.Password, e.plateNumber FROM employees AS e WHERE e.name = ?";
+    private static final String REPAIRS_EMPLOYEES = "SELECT e.idEmployee, r.idRepair FROM employees AS e FROM repairs AS r FROM repairsemployess AS re WHERE re.Socorro = ?";
     private static final String INSERT = "INSERT INTO employees (dni, name, password, plateNumber) VALUES (?, ?, ?, ?)";
     private static final String UPDATE = "UPDATE employees SET name=? WHERE idEmployee=?";
     private static final String DELETE = "DELETE FROM employees WHERE idEmployee=?";
