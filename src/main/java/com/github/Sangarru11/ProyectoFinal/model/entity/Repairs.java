@@ -1,10 +1,12 @@
 package com.github.Sangarru11.ProyectoFinal.model.entity;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Repairs {
 
     private String idRepair;
+    private List<Employee> employees;
     private String date;
     private String status;
     private String description;
@@ -13,8 +15,9 @@ public class Repairs {
     public Repairs() {
     }
 
-    public Repairs(String idRepair, String date, String status, String description, String plateNumber) {
+    public Repairs(String idRepair, List<Employee> employees, String date, String status, String description, String plateNumber) {
         this.idRepair = idRepair;
+        this.employees = employees;
         this.date = date;
         this.status = status;
         this.description = description;
@@ -27,6 +30,14 @@ public class Repairs {
 
     public void setIdRepair(String idRepair) {
         this.idRepair = idRepair;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
     public String getDate() {

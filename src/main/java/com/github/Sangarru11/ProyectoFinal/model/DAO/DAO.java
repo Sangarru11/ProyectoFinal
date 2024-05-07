@@ -14,7 +14,10 @@ public interface DAO<T,K> extends Closeable {
 
     T findById(String key);
 
-    Repairs findByDate(String key);
+    List<Repairs> findbyAll();
+
+    T findByDate(String key);
+
 
     T findByDNI(String key);
 

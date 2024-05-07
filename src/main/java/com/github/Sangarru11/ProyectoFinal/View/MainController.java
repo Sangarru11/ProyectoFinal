@@ -2,7 +2,14 @@ package com.github.Sangarru11.ProyectoFinal.View;
 import com.github.Sangarru11.ProyectoFinal.App;
 
 import com.github.Sangarru11.ProyectoFinal.model.DAO.EmployeeDAO;
+import com.github.Sangarru11.ProyectoFinal.model.DAO.RepairsDAO;
+import com.github.Sangarru11.ProyectoFinal.model.entity.Customers;
 import com.github.Sangarru11.ProyectoFinal.model.entity.Employee;
+import com.github.Sangarru11.ProyectoFinal.model.entity.Mechanic;
+import com.github.Sangarru11.ProyectoFinal.model.entity.Repairs;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,15 +17,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
 public class MainController extends Controller implements Initializable {
+
     @FXML
     private TextField txtUsername;
 
@@ -30,12 +40,11 @@ public class MainController extends Controller implements Initializable {
 
     @Override
     public void onOpen(Object input) throws IOException {
-       // changeScene(Scenes.MAIN,null);
+
     }
 
 
     public static void changeScene(Scenes scene,Object data) throws IOException {
-            //de adorno
         View view = MainController.loadFXML(scene);
         Scene _scene = new Scene(view.scene, 640, 480);
         App.currentController = view.controller;
@@ -48,21 +57,6 @@ public class MainController extends Controller implements Initializable {
     public void onClose(Object output) {
 
     }
-
-    public void openModal(Scenes scene, String title,Controller parent, Object data) throws IOException {
-        View view = loadFXML(scene);
-        Stage stage = new Stage();
-        stage.setTitle(title);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initOwner(App.stage);
-        Scene _scene = new Scene(view.scene);
-        stage.setScene(_scene);
-        view.controller.onOpen(parent);
-        stage.showAndWait();
-        //podríamos leer que ha devuelto...
-
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -85,7 +79,7 @@ public class MainController extends Controller implements Initializable {
     }
 
     @FXML
-    void Login(ActionEvent event) throws IOException {
+    public void Login() throws IOException {
         String username = txtUsername.getText();
         String password = txtPassword.getText();
 
@@ -96,15 +90,15 @@ public class MainController extends Controller implements Initializable {
                 System.out.println(App.stage);
                 System.out.println(Scenes.PrinPanel);
                 changeScene(Scenes.PrinPanel, null);
-            } else {
+            }else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Invalid Password");
                 alert.show();
             }
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Invalid Username");
-            alert.show();
+            }else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Invalid Username");
+                alert.show();
         }
     }
 }

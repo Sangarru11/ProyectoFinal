@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class CustomersDAO implements DAO<Customers,String> {
     private static final String FINDBYDNI = "SELECT c.idCustomer, c.dni, c.name, c.phoneNumber, c.plateNumber FROM customers AS c WHERE dni=?";
@@ -41,16 +42,16 @@ public class CustomersDAO implements DAO<Customers,String> {
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                    }else{
-                        try (PreparedStatement pst = connection.prepareStatement(UPDATE)) {
-                            pst.setString(1, entity.getName());
-                            pst.setString(2, entity.getIdCustomer());
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
+                }else{
+                    try (PreparedStatement pst = connection.prepareStatement(UPDATE)) {
+                        pst.setString(1, entity.getName());
+                        pst.setString(2, entity.getIdCustomer());
+                    } catch (SQLException e) {
+                        e.printStackTrace();
                     }
                 }
             }
+        }
         return result;
     }
 
@@ -89,7 +90,12 @@ public class CustomersDAO implements DAO<Customers,String> {
     }
 
     @Override
-    public Repairs findByDate(String key) {
+    public List<Repairs> findbyAll() {
+        return null;
+    }
+
+    @Override
+    public Customers findByDate(String key) {
         return null;
     }
 
