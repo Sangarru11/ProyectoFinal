@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class MechanicDAO implements DAO<Mechanic,String> {
     private static final String FINDBYID = "SELECT m.idMechanic, m.name, m.direction FROM mechanics AS m WHERE m.idMechanic = ?";
@@ -78,14 +79,19 @@ public class MechanicDAO implements DAO<Mechanic,String> {
                     result = c;
                 }
             }
-            }catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         }
         return result;
     }
 
     @Override
-    public Repairs findByDate(String key) {
+    public List<Repairs> findbyAll() {
+        return null;
+    }
+
+    @Override
+    public Mechanic findByDate(String key) {
         return null;
     }
 
@@ -108,7 +114,7 @@ public class MechanicDAO implements DAO<Mechanic,String> {
                     result = c;
                 }
             }
-            }catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         }
         return result;

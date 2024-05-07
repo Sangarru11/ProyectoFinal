@@ -19,7 +19,6 @@ public class App extends Application {
     public static Stage stage;
     public static Controller currentController;
 
-    //este el es primer método que se ejecuta al abrir la primera ventana
     @Override
     public void start(Stage stage) throws IOException {
         //view/layout.fxml

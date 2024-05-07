@@ -1,9 +1,11 @@
 package com.github.Sangarru11.ProyectoFinal.model.entity;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Employee {
     private String idEmployee;
+    private List<Repairs> _repairs;
     private String name;
     private String DNI;
     private String password;
@@ -13,12 +15,21 @@ public class Employee {
 
     }
 
-    public Employee(String idEmployee, String name, String DNI, String password, String plateNumber) {
+    public Employee(String idEmployee, List<Repairs> _repairs, String name, String DNI, String password, String plateNumber) {
         this.idEmployee = idEmployee;
+        this._repairs = _repairs;
         this.name = name;
         this.DNI = DNI;
         this.password = password;
         this.plateNumber = plateNumber;
+    }
+
+    public List<Repairs> get_repairs() {
+        return _repairs;
+    }
+
+    public void set_repairs(List<Repairs> _repairs) {
+        this._repairs = _repairs;
     }
 
     public String getIdEmployee() {
@@ -73,16 +84,17 @@ public class Employee {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idEmployee, name, DNI, password, plateNumber);
+        return Objects.hash(idEmployee, _repairs, name, DNI, password, plateNumber);
     }
 
     @Override
     public String toString() {
         return "Employee{" +
                 "idEmployee='" + idEmployee + '\'' +
+                ", _repairs=" + _repairs +
                 ", name='" + name + '\'' +
                 ", DNI='" + DNI + '\'' +
-                ", pasword='" + password + '\'' +
+                ", password='" + password + '\'' +
                 ", plateNumber='" + plateNumber + '\'' +
                 '}';
     }

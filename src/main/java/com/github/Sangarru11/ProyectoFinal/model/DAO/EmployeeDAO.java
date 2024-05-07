@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class EmployeeDAO implements DAO<Employee,String> {
     private static final String FINDBYDNI = "SELECT e.idEmployee, e.dni, e.name, e.password, e.plateNumber FROM employees AS e WHERE dni=?";
@@ -51,7 +52,7 @@ public class EmployeeDAO implements DAO<Employee,String> {
                 }
             }
         }
-                return result;
+        return result;
     }
 
     @Override
@@ -90,7 +91,12 @@ public class EmployeeDAO implements DAO<Employee,String> {
     }
 
     @Override
-    public Repairs findByDate(String key) {
+    public List<Repairs> findbyAll() {
+        return null;
+    }
+
+    @Override
+    public Employee findByDate(String key) {
         return null;
     }
 

@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RepairsDAO implements DAO<Repairs,String> {
     private static final String FINDBYID = "SELECT r.idRepair, r.date, r.status, r.description, r.plateNumber FROM repairs AS r WHERE r.idRepair = ?";
@@ -81,6 +83,26 @@ public class RepairsDAO implements DAO<Repairs,String> {
                     c.setDescription(res.getString("description"));
                     c.setPlateNumber(res.getString("plateNumber"));
                     result = c;
+                }
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    @Override
+    public List<Repairs> findbyAll() {
+        List<Repairs> result = new ArrayList<>();
+        try (PreparedStatement pst = connection.prepareStatement("SELECT * FROM repairs")) {
+            try (ResultSet res = pst.executeQuery()) {
+                while (res.next()) {
+                    Repairs c = new Repairs();
+                    c.setIdRepair(res.getString("idRepair"));
+                    c.setDate(res.getString("date"));
+                    c.setStatus(res.getString("status"));
+                    c.setDescription(res.getString("description"));
+                    c.setPlateNumber(res.getString("plateNumber"));
+                    result.add(c);
                 }
             }
         }catch (SQLException e) {
