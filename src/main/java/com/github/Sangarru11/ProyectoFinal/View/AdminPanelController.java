@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.TextFieldTableCell;
 
@@ -59,6 +60,22 @@ public class AdminPanelController extends Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tableView.setEditable(true);
+
+        tableView.setRowFactory(tv -> {
+            TableRow<Repairs> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 3 && (! row.isEmpty()) ) {
+                    Repairs repairs = row.getItem();
+                    try {
+                        changeScene(Scenes.AddCustomersPanel,null);//panel que al clicar en la tabla cambia
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
+            });
+            return row ;
+        });
         columnIDRepair.setCellValueFactory(repairs-> new SimpleStringProperty(repairs.getValue().getIdRepair()));
         columnIDRepair.setCellFactory(TextFieldTableCell.forTableColumn());
         columnIDRepair.setOnEditCommit(event -> {
@@ -144,5 +161,9 @@ public class AdminPanelController extends Controller implements Initializable {
     @FXML
     public void ReturnToLogin() throws IOException {
         changeScene(Scenes.MAIN,null);
+    }
+    @FXML
+    public void ChangeAddCustomer() throws IOException{
+        changeScene(Scenes.AddCustomersPanel,null);
     }
 }

@@ -4,6 +4,7 @@ public enum Scenes {
     REGISTERPANEL("View/RegisterPanel.fxml"),
     MAIN("View/main.fxml"),
     PrinPanel("View/PrincipalPanel.fxml"),
+    AddCustomersPanel("View/AddCustomers.fxml"),
     AdminPanel("View/AdminPanel.fxml");
 
     private String url;

@@ -17,11 +17,38 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@ImagenPrincipal.png" />
-         </image>
-      </ImageView>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@ImagenPrincipal.png" />
+               </image>
+            </ImageView>
+            <HBox fillHeight="false" prefHeight="35.0" prefWidth="164.0">
+               <children>
+                  <ImageView fitHeight="53.0" fitWidth="52.0" onMouseClicked="#ChangeAddCustomer" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@AddCustomer.png" />
+                     </image>
+                  </ImageView>
+                  <Text onMouseClicked="#ChangeAddCustomer" strokeType="OUTSIDE" strokeWidth="0.0" text="Añadir Clientes" wrappingWidth="100.13674926757812">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+               <HBox.margin>
+                  <Insets left="250.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+      </HBox>
       <Text fill="WHITE" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Reparaciones en curso" textAlignment="CENTER">
          <font>
             <Font size="29.0" />
