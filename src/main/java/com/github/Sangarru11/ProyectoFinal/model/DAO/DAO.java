@@ -12,6 +12,8 @@ public interface DAO<T,K> extends Closeable {
     T save(T entity);
     T delete(T entity) throws SQLException;
 
+    Employee adminManage(Employee entity) throws SQLException;
+
     T findById(String key);
 
     List<Repairs> findbyAll();

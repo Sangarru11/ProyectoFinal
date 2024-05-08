@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class PrincipalPanelController extends Controller implements Initializable {
+public class AdminPanelController extends Controller implements Initializable {
     @FXML
     private TableView<Repairs> tableView;
     @FXML
@@ -60,10 +60,22 @@ public class PrincipalPanelController extends Controller implements Initializabl
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tableView.setEditable(true);
         columnIDRepair.setCellValueFactory(repairs-> new SimpleStringProperty(repairs.getValue().getIdRepair()));
+        columnIDRepair.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnIDRepair.setOnEditCommit(event -> {
+            if(event.getNewValue()== event.getOldValue()){
+                return;
+            }
+            if(event.getNewValue().length()<=60) {
+                Repairs repairs = event.getRowValue();
+                repairs.setDescription(event.getNewValue());
+                RepairsDAO.build().save(repairs);
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Te has pasao!!!!!");
+                alert.show();
+            }
+        });
         columnDescription.setCellValueFactory(repairs-> new SimpleStringProperty(repairs.getValue().getDescription()));
-        columnRepairDate.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getDate()));
-        columnRepairState.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getStatus()));
-        columnPlateNumber.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getPlateNumber()));
         columnDescription.setCellFactory(TextFieldTableCell.forTableColumn());
         columnDescription.setOnEditCommit(event -> {
             if(event.getNewValue()== event.getOldValue()){
@@ -79,7 +91,56 @@ public class PrincipalPanelController extends Controller implements Initializabl
                 alert.show();
             }
         });
+        columnRepairDate.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getDate()));
+        columnRepairDate.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnRepairDate.setOnEditCommit(event -> {
+            if(event.getNewValue()== event.getOldValue()){
+                return;
+            }
+            if(event.getNewValue().length()<=60) {
+                Repairs repairs = event.getRowValue();
+                repairs.setDescription(event.getNewValue());
+                RepairsDAO.build().save(repairs);
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Te has pasao!!!!!");
+                alert.show();
+            }
+        });
+        columnRepairState.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getStatus()));
+        columnRepairState.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnRepairState.setOnEditCommit(event -> {
+            if(event.getNewValue()== event.getOldValue()){
+                return;
+            }
+            if(event.getNewValue().length()<=60) {
+                Repairs repairs = event.getRowValue();
+                repairs.setDescription(event.getNewValue());
+                RepairsDAO.build().save(repairs);
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Te has pasao!!!!!");
+                alert.show();
+            }
+        });
+        columnPlateNumber.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getPlateNumber()));
+        columnPlateNumber.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnPlateNumber.setOnEditCommit(event -> {
+            if(event.getNewValue()== event.getOldValue()){
+                return;
+            }
+            if(event.getNewValue().length()<=60) {
+                Repairs repairs = event.getRowValue();
+                repairs.setDescription(event.getNewValue());
+                RepairsDAO.build().save(repairs);
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Te has pasao!!!!!");
+                alert.show();
+            }
+        });
     }
+
     @FXML
     public void ReturnToLogin() throws IOException {
         changeScene(Scenes.MAIN,null);

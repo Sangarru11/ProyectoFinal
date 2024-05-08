@@ -8,11 +8,11 @@ public class TestInsertEmployee {
     public static void main(String[] args) {
 
         Employee employee = new Employee();
-        employee.setIdEmployee("1");
-        employee.setDNI("12345678A");
-        employee.setName("Juan Perez");
-        employee.setPassword("1234");
-        employee.setPlateNumber("123ABC");
+        employee.setIdEmployee("12");
+        employee.setDNI("75829349X");
+        employee.setName("Pepillo Fernandez");
+        employee.setPassword("2222");
+        employee.setAdmin(false);
 
         EmployeeDAO employeeDAO = new EmployeeDAO();
         employeeDAO.save(employee);

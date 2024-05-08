@@ -1,10 +1,10 @@
 package com.github.Sangarru11.ProyectoFinal.View;
 
 public enum Scenes {
-    ROOT("View/layout.fxml"),
+    REGISTERPANEL("View/RegisterPanel.fxml"),
     MAIN("View/main.fxml"),
     PrinPanel("View/PrincipalPanel.fxml"),
-    FORMAUTHOR("View/formAuthor.fxml");
+    AdminPanel("View/AdminPanel.fxml");
 
     private String url;
     Scenes(String url){
