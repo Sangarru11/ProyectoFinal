@@ -9,19 +9,26 @@ public class Employee {
     private String name;
     private String DNI;
     private String password;
-    private String plateNumber;
+    private boolean isAdmin;
 
     public Employee() {
-
     }
 
-    public Employee(String idEmployee, List<Repairs> _repairs, String name, String DNI, String password, String plateNumber) {
+    public Employee(String idEmployee, List<Repairs> _repairs, String name, String DNI, String password, String plateNumber, boolean isAdmin) {
         this.idEmployee = idEmployee;
         this._repairs = _repairs;
         this.name = name;
         this.DNI = DNI;
         this.password = password;
-        this.plateNumber = plateNumber;
+        this.isAdmin = isAdmin;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.isAdmin = admin;
     }
 
     public List<Repairs> get_repairs() {
@@ -64,27 +71,17 @@ public class Employee {
         this.password = password;
     }
 
-    public String getPlateNumber() {
-        return plateNumber;
-    }
-
-    public void setPlateNumber(String plateNumber) {
-        this.plateNumber = plateNumber;
-    }
-
     @Override
-    public boolean equals(Object object) {
-        boolean isEquals = false;
-        if (this == object) isEquals = true;
-        if (object == null || getClass() != object.getClass()) isEquals = false;
-        Employee employee = (Employee) object;
-        isEquals = Objects.equals(idEmployee, employee.idEmployee) && Objects.equals(name, employee.name) && Objects.equals(DNI, employee.DNI) && Objects.equals(password, employee.password) && Objects.equals(plateNumber, employee.plateNumber);
-        return isEquals;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return isAdmin == employee.isAdmin && Objects.equals(idEmployee, employee.idEmployee) && Objects.equals(_repairs, employee._repairs) && Objects.equals(name, employee.name) && Objects.equals(DNI, employee.DNI) && Objects.equals(password, employee.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idEmployee, _repairs, name, DNI, password, plateNumber);
+        return Objects.hash(idEmployee, _repairs, name, DNI, password, isAdmin);
     }
 
     @Override
@@ -95,7 +92,7 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", DNI='" + DNI + '\'' +
                 ", password='" + password + '\'' +
-                ", plateNumber='" + plateNumber + '\'' +
+                ", isAdmin=" + isAdmin +
                 '}';
     }
 }

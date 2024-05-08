@@ -21,7 +21,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        //view/layout.fxml
         View view = MainController.loadFXML(Scenes.MAIN);
         scene = new Scene(view.scene, 640, 480);
         currentController = view.controller;
@@ -30,12 +29,6 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
-    public static void setRoot(String fxml) throws IOException {
-        //  scene.setRoot(loadFXML(fxml));
-    }
-
-
     public static void main(String[] args) {
         launch();
     }

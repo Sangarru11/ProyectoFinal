@@ -12,13 +12,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class EmployeeDAO implements DAO<Employee,String> {
-    private static final String FINDBYDNI = "SELECT e.idEmployee, e.dni, e.name, e.password, e.plateNumber FROM employees AS e WHERE dni=?";
-    private static final String FINDBYID = "SELECT e.idEmployee, e.dni, e.name, e.password, e.plateNumber FROM employees AS e WHERE e.idEmployee = ?";
-    private static final String FINDBYNAME = "SELECT e.IdEmployee, e.DNI, e.name, e.Password, e.plateNumber FROM employees AS e WHERE e.name = ?";
+    private static final String FINDBYDNI = "SELECT e.idEmployee, e.dni, e.name, e.password,e.Admin FROM employees AS e WHERE dni=?";
+    private static final String FINDBYID = "SELECT e.idEmployee, e.dni, e.name, e.password ,e.Admin FROM employees AS e WHERE e.idEmployee = ?";
+    private static final String FINDBYNAME = "SELECT e.IdEmployee, e.dni, e.name, e.Password, e.Admin FROM employees AS e WHERE e.name = ?";
     private static final String REPAIRS_EMPLOYEES = "SELECT e.idEmployee, r.idRepair FROM employees AS e FROM repairs AS r FROM repairsemployess AS re WHERE re.Socorro = ?";
     private static final String INSERT = "INSERT INTO employees (dni, name, password, plateNumber) VALUES (?, ?, ?, ?)";
     private static final String UPDATE = "UPDATE employees SET name=? WHERE idEmployee=?";
     private static final String DELETE = "DELETE FROM employees WHERE idEmployee=?";
+    private static final String ADMIN = "SELECT e.idEmployee, e.dni, e.name, e.password, e.Admin FROM employees AS e WHERE e.Admin=?";
 
     private Connection connection;
     public EmployeeDAO() {
@@ -37,7 +38,7 @@ public class EmployeeDAO implements DAO<Employee,String> {
                         pst.setString(1, dni);
                         pst.setString(2, entity.getName());
                         pst.setString(3, entity.getPassword());
-                        pst.setString(4, entity.getPlateNumber());
+                        pst.setBoolean(4, entity.isAdmin());
                         pst.executeUpdate();
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -67,6 +68,18 @@ public class EmployeeDAO implements DAO<Employee,String> {
         }
         return entity;
     }
+    @Override
+    public Employee adminManage(Employee entity) throws SQLException {
+        if (entity != null) {
+            try (PreparedStatement pst = connection.prepareStatement(ADMIN)) {
+                pst.setBoolean(1, entity.isAdmin());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return entity;
+    }
 
     @Override
     public Employee findById(String key) {
@@ -80,7 +93,6 @@ public class EmployeeDAO implements DAO<Employee,String> {
                     c.setDNI(res.getString("dni"));
                     c.setName(res.getString("name"));
                     c.setPassword(res.getString("password"));
-                    c.setPlateNumber(res.getString("plateNumber"));
                     result = c;
                 }
             }
@@ -112,7 +124,6 @@ public class EmployeeDAO implements DAO<Employee,String> {
                     c.setDNI(res.getString("dni"));
                     c.setName(res.getString("name"));
                     c.setPassword(res.getString("password"));
-                    c.setPlateNumber(res.getString("plateNumber"));
                     result = c;
                 }
             }
@@ -134,7 +145,7 @@ public class EmployeeDAO implements DAO<Employee,String> {
                     c.setDNI(res.getString("dni"));
                     c.setName(res.getString("name"));
                     c.setPassword(res.getString("password"));
-                    c.setPlateNumber(res.getString("plateNumber"));
+                    c.setAdmin(res.getBoolean("Admin"));
                     result = c;
                 }
             }
