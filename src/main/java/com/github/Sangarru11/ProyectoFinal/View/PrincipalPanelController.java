@@ -38,7 +38,6 @@ public class PrincipalPanelController extends Controller implements Initializabl
     @Override
     public void onOpen(Object input) throws IOException {
         List<Repairs> repairs = RepairsDAO.build().findbyAll();
-        System.out.println(repairs);
         this.repairs = FXCollections.observableArrayList(repairs);
         tableView.setItems(this.repairs);
     }
@@ -63,6 +62,21 @@ public class PrincipalPanelController extends Controller implements Initializabl
         columnDescription.setCellValueFactory(repairs-> new SimpleStringProperty(repairs.getValue().getDescription()));
         columnRepairDate.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getDate()));
         columnRepairState.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getStatus()));
+        columnRepairState.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnRepairState.setOnEditCommit(event -> {
+            if(event.getNewValue()== event.getOldValue()){
+                return;
+            }
+            if(event.getNewValue().length()<=60) {
+                Repairs repairs = event.getRowValue();
+                repairs.setDescription(event.getNewValue());
+                RepairsDAO.build().save(repairs);
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Te has pasao!!!!!");
+                alert.show();
+            }
+        });
         columnPlateNumber.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getPlateNumber()));
         columnDescription.setCellFactory(TextFieldTableCell.forTableColumn());
         columnDescription.setOnEditCommit(event -> {

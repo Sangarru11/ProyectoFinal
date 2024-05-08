@@ -38,7 +38,7 @@ public class MainController extends Controller implements Initializable {
         View view = MainController.loadFXML(scene);
         Scene _scene = new Scene(view.scene, 1075, 720);
         App.currentController = view.controller;
-       App.currentController.onOpen(data);
+        App.currentController.onOpen(data);
         App.stage.setScene(_scene);
         App.stage.show();
     }
@@ -75,7 +75,6 @@ public class MainController extends Controller implements Initializable {
         Employee employee = EmployeeDAO.build().findByName(username);
 
         if (employee != null) {
-            System.out.println(employee.isAdmin());
             if (password.equals(employee.getPassword())) {
                 if (employee.isAdmin()) {
                     changeScene(Scenes.AdminPanel, null);

@@ -74,6 +74,7 @@ public class EmployeeDAO implements DAO<Employee,String> {
             try (PreparedStatement pst = connection.prepareStatement(ADMIN)) {
                 pst.setBoolean(1, entity.isAdmin());
                 pst.executeUpdate();
+                entity.setAdmin(!entity.isAdmin());
             } catch (SQLException e) {
                 e.printStackTrace();
             }

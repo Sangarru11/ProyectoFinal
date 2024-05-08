@@ -5,24 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1d6d572-1f0a-4852-8f72-beb28a444c8d" name="Changes" comment="CustomersDAO &quot;Terminao&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/AdminPanelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/RegisterPanelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/AdminPanel.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/RegisterPanel.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/Return.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/AddCustomersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/AddCustomers.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/Test/TestInsertEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/Test/TestInsertEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/AboutController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/AdminPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/AdminPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/PrincipalPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/PrincipalPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/Scenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/Scenes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/CustomersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/CustomersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/DAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/MechanicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/MechanicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/RepairsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/RepairsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/entity/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/PrincipalPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/PrincipalPanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/AdminPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/AdminPanel.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +65,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.App.executor": "Run",
-    "Application.Executable.executor": "Run",
+    "Application.Executable.executor": "Coverage",
     "Application.TestInsert.executor": "Run",
     "Application.TestInsertCustomers.executor": "Run",
     "Application.TestInsertEmployee.executor": "Run",
@@ -88,7 +79,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "TablaFuncionando",
+    "git-widget-placeholder": "PantallasAdmin",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/santi/IdeaProjects/ProyectoFinal/src/main/resources/com/github/Sangarru11/ProyectoFinal/View",
     "node.js.detected.package.eslint": "true",
@@ -116,6 +107,17 @@
       <recent name="C:\Users\santi\IdeaProjects\ProyectoFinal\src\main\resources\com.github.Sangarru11.ProyectoFinal.View" />
       <recent name="C:\Users\santi\IdeaProjects\ProyectoFinal\src\main\resources\com.github.Sangarru11.ProyectoFinal\fxml" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Executable" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.github.Sangarru11.ProyectoFinal.Executable" />
+      <module name="ProyectoFinal" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -156,7 +158,8 @@
       <workItem from="1715065141241" duration="9744000" />
       <workItem from="1715076558848" duration="12508000" />
       <workItem from="1715150027055" duration="226000" />
-      <workItem from="1715150266856" duration="5004000" />
+      <workItem from="1715150266856" duration="11457000" />
+      <workItem from="1715165722467" duration="4160000" />
     </task>
     <task id="LOCAL-00001" summary="Comienzo del proyecto primer commit con constructores etc">
       <option name="closed" value="true" />
