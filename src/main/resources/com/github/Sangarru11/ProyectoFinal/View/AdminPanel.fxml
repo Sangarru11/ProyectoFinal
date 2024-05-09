@@ -33,6 +33,9 @@
                      <image>
                         <Image url="@AddCustomer.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <Text onMouseClicked="#ChangeAddCustomer" strokeType="OUTSIDE" strokeWidth="0.0" text="Añadir Clientes" wrappingWidth="100.13674926757812">
                      <font>
@@ -41,6 +44,9 @@
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Text>
                </children>
                <HBox.margin>

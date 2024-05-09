@@ -83,12 +83,12 @@ public class MainController extends Controller implements Initializable {
                 }
             }else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Invalid Password");
+                alert.setContentText("Contraseña Invalida");
                 alert.show();
             }
             }else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Invalid Username");
+                alert.setContentText("Nombre de usuario invalido");
                 alert.show();
         }
     }

@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomersDAO implements DAO<Customers,String> {
@@ -97,8 +98,24 @@ public class CustomersDAO implements DAO<Customers,String> {
     }
 
     @Override
-    public List<Repairs> findbyAll() {
-        return null;
+    public List<Customers> findbyAll() {
+        List<Customers> result = new ArrayList<>();
+        try (PreparedStatement pst = connection.prepareStatement("SELECT * FROM customers")){
+            try (ResultSet res = pst.executeQuery()){
+                while (res.next()){
+                    Customers c = new Customers();
+                    c.setIdCustomer(res.getString("idcustomers"));
+                    c.setDNI(res.getString("DNI"));
+                    c.setName(res.getString("Name"));
+                    c.setPhoneNumber(res.getString("PhoneNumber"));
+                    c.setPlateNumber(res.getString("PlateNumber"));
+                    result.add(c);
+                }
+            }
+            }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
