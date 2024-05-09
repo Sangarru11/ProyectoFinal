@@ -57,9 +57,25 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </PasswordField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Inserte su DNI">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Text>
+            <TextField fx:id="txtDNI" prefHeight="25.0" prefWidth="242.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </TextField>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="btnRegister" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Register" prefHeight="45.0" prefWidth="90.0" text="Registrarse">
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#Register" prefHeight="45.0" prefWidth="90.0" text="Registrarse">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -71,6 +87,9 @@
                <padding>
                   <Insets top="10.0" />
                </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
