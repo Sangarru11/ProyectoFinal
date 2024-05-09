@@ -18,6 +18,7 @@ public class RepairsDAO implements DAO<Repairs,String> {
     private static final String INSERT = "INSERT INTO repairs (date, status, description, plateNumber) VALUES (?, ?, ?, ?)";
     private static final String UPDATE = "UPDATE repairs SET date=?, status=?, description=?, plateNumber=? WHERE idRepair=?";
     private static final String DELETE = "DELETE FROM repairs WHERE idRepair=?";
+
     private Connection connection;
     public RepairsDAO() {
         connection = ConnectionMariaDB.getConnection();
@@ -82,7 +83,7 @@ public class RepairsDAO implements DAO<Repairs,String> {
             pst.setString(1, key);
             try (ResultSet res = pst.executeQuery()) {
                 if (res.next()) {
-                    Repairs c = new Repairs();
+                    RepairsLazy c = new RepairsLazy();
                     c.setIdRepair(res.getString("idRepair"));
                     c.setDate(res.getString("date"));
                     c.setStatus(res.getString("status"));
@@ -102,13 +103,13 @@ public class RepairsDAO implements DAO<Repairs,String> {
         try (PreparedStatement pst = connection.prepareStatement("SELECT * FROM repairs")) {
             try (ResultSet res = pst.executeQuery()) {
                 while (res.next()) {
-                    Repairs c = new Repairs();
-                    c.setIdRepair(res.getString("idRepair"));
-                    c.setDate(res.getString("date"));
-                    c.setStatus(res.getString("status"));
-                    c.setDescription(res.getString("description"));
-                    c.setPlateNumber(res.getString("plateNumber"));
-                    result.add(c);
+                    RepairsLazy r = new RepairsLazy();
+                    r.setIdRepair(res.getString("idRepair"));
+                    r.setDate(res.getString("date"));
+                    r.setStatus(res.getString("status"));
+                    r.setDescription(res.getString("description"));
+                    r.setPlateNumber(res.getString("plateNumber"));
+                    result.add(r);
                 }
             }
         }catch (SQLException e) {
@@ -123,7 +124,7 @@ public class RepairsDAO implements DAO<Repairs,String> {
             pst.setString(1, key);
             try (ResultSet res = pst.executeQuery()) {
                 if (res.next()) {
-                    Repairs c = new Repairs();
+                    RepairsLazy c = new RepairsLazy();
                     c.setDate(res.getString("date"));
                     c.setStatus(res.getString("status"));
                     c.setDescription(res.getString("description"));
@@ -153,4 +154,39 @@ public class RepairsDAO implements DAO<Repairs,String> {
     public static RepairsDAO build(){
         return new RepairsDAO();
     }
+}
+class RepairsLazy extends Repairs{
+    private static final String FINDEMPLOYEESBYREPAIR = "SELECT e.* FROM repairs r,repair_employee re, employees e WHERE r.idRepair=re.idRepair AND re.idEmployee=e.idEmployee AND r.idRepair=?";
+
+    public RepairsLazy() {
+
+    }
+    public RepairsLazy(String idRepair, List<Employee> employees, String date, String status, String description, String plateNumber) {
+        super(idRepair, employees, date, status, description, plateNumber);
+    }
+        @Override
+        public List<Employee> getEmployees(){
+            if(super.getEmployees()==null){
+                Connection connection = ConnectionMariaDB.getConnection();
+                List<Employee> result = new ArrayList<>();
+                try (PreparedStatement pst = connection.prepareStatement(FINDEMPLOYEESBYREPAIR)) {
+                    pst.setString(1, getIdRepair());
+                    try (ResultSet res = pst.executeQuery()) {
+                        while (res.next()) {
+                            Employee e = new Employee();
+                            e.setIdEmployee(res.getString("idEmployee"));
+                            e.setDNI(res.getString("DNI"));
+                            e.setName(res.getString("name"));
+                            result.add(e);
+                        }
+                    }
+                    super.setEmployees(result);
+                }catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            return super.getEmployees();
+        }
+
+
 }

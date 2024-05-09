@@ -39,7 +39,6 @@ public class AdminPanelController extends Controller implements Initializable {
     @Override
     public void onOpen(Object input) throws IOException {
         List<Repairs> repairs = RepairsDAO.build().findbyAll();
-        System.out.println(repairs);
         this.repairs = FXCollections.observableArrayList(repairs);
         tableView.setItems(this.repairs);
     }
@@ -50,7 +49,7 @@ public class AdminPanelController extends Controller implements Initializable {
     }
     public static void changeScene(Scenes scene,Object data) throws IOException {
         View view = MainController.loadFXML(scene);
-        Scene _scene = new Scene(view.scene, 640, 480);
+        Scene _scene = new Scene(view.scene, 790, 690);
         App.currentController = view.controller;
         App.currentController.onOpen(data);
         App.stage.setScene(_scene);
@@ -64,10 +63,11 @@ public class AdminPanelController extends Controller implements Initializable {
         tableView.setRowFactory(tv -> {
             TableRow<Repairs> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
+                Repairs repair = tableView.getSelectionModel().getSelectedItem();
                 if (event.getClickCount() == 3 && (! row.isEmpty()) ) {
                     Repairs repairs = row.getItem();
                     try {
-                        changeScene(Scenes.AddCustomersPanel,null);//panel que al clicar en la tabla cambia
+                        changeScene(Scenes.MechanicInfo,repair.getEmployees());//panel que al clicar en la tabla cambia
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }

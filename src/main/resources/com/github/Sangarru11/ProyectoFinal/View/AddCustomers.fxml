@@ -86,6 +86,9 @@
                      <HBox.margin>
                         <Insets bottom="20.0" />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </children>
             </HBox>

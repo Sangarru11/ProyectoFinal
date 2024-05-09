@@ -92,7 +92,7 @@ public class MechanicDAO implements DAO<Mechanic,String> {
     }
 
     @Override
-    public List<Repairs> findbyAll() {
+    public List<Mechanic> findbyAll() {
         return null;
     }
 

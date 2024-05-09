@@ -6,6 +6,7 @@ import com.github.Sangarru11.ProyectoFinal.model.entity.Customers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -45,13 +46,27 @@ public class AddCustomersController extends Controller implements Initializable 
     }
     @FXML
     public void addCustomers() throws IOException {
+        Customers newCustomer = new Customers();
         String NameCustomers = txtNameCustomers.getText();
+        newCustomer.setName(NameCustomers);
         String PhoneNumber = txtPhoneNumber.getText();
+        newCustomer.setPhoneNumber(PhoneNumber);
         String DNI = txtDNI.getText();
+        newCustomer.setDNI(DNI);
         String PlateNumber = txtPlateNumber.getText();
-        Customers customers = CustomersDAO.build().findByDNI(DNI);
+        newCustomer.setPlateNumber(PlateNumber);
 
-        
+        Customers customers = CustomersDAO.build().findByDNI(DNI);
+        if (customers != null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("El cliente ya existe en la base de datos.");
+            alert.show();
+            return;
+        }
+        CustomersDAO.build().save(newCustomer);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("El cliente se ha añadido correctamente.");
+        alert.show();
     }
     @FXML
     public void changeAdminPanelController() throws IOException{
