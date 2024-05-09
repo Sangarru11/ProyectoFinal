@@ -2,7 +2,9 @@ package com.github.Sangarru11.ProyectoFinal.View;
 
 import com.github.Sangarru11.ProyectoFinal.App;
 import com.github.Sangarru11.ProyectoFinal.model.DAO.CustomersDAO;
+import com.github.Sangarru11.ProyectoFinal.model.DAO.RepairsDAO;
 import com.github.Sangarru11.ProyectoFinal.model.entity.Customers;
+import com.github.Sangarru11.ProyectoFinal.model.entity.Repairs;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -64,6 +66,7 @@ public class AddCustomersController extends Controller implements Initializable 
             return;
         }
         CustomersDAO.build().save(newCustomer);
+
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setContentText("El cliente se ha añadido correctamente.");
         alert.show();

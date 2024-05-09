@@ -1,7 +1,11 @@
 package com.github.Sangarru11.ProyectoFinal.View;
 
 import com.github.Sangarru11.ProyectoFinal.App;
+import com.github.Sangarru11.ProyectoFinal.model.DAO.CustomersDAO;
+import com.github.Sangarru11.ProyectoFinal.model.DAO.EmployeeDAO;
 import com.github.Sangarru11.ProyectoFinal.model.DAO.RepairsDAO;
+import com.github.Sangarru11.ProyectoFinal.model.entity.Customers;
+import com.github.Sangarru11.ProyectoFinal.model.entity.Employee;
 import com.github.Sangarru11.ProyectoFinal.model.entity.Repairs;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
