@@ -164,7 +164,7 @@ class RepairsLazy extends Repairs{
     public RepairsLazy(String idRepair, List<Employee> employees, String date, String status, String description, String plateNumber) {
         super(idRepair, employees, date, status, description, plateNumber);
     }
-        @Override
+    @Override
         public List<Employee> getEmployees(){
             if(super.getEmployees()==null){
                 Connection connection = ConnectionMariaDB.getConnection();
@@ -187,6 +187,4 @@ class RepairsLazy extends Repairs{
             }
             return super.getEmployees();
         }
-
-
 }
