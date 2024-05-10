@@ -16,8 +16,7 @@ public class EmployeeDAO implements DAO<Employee,String> {
     private static final String FINDBYDNI = "SELECT e.idEmployee, e.dni, e.name, e.password,e.Admin FROM employees AS e WHERE dni=?";
     private static final String FINDBYID = "SELECT e.idEmployee, e.dni, e.name, e.password ,e.Admin FROM employees AS e WHERE e.idEmployee = ?";
     private static final String FINDBYNAME = "SELECT e.IdEmployee, e.dni, e.name, e.Password, e.Admin FROM employees AS e WHERE e.name = ?";
-    private static final String REPAIRS_EMPLOYEES = "SELECT e.idEmployee, r.idRepair FROM employees AS e FROM repairs AS r FROM repairsemployess AS re WHERE re.Socorro = ?";
-    private static final String INSERT = "INSERT INTO employees (dni, name, password) VALUES (?, ?, ?, ?)";
+    private static final String INSERT = "INSERT INTO employees (dni, name, password) VALUES (?, ?, ?)";
     private static final String UPDATE = "UPDATE employees SET name=? WHERE idEmployee=?";
     private static final String DELETE = "DELETE FROM employees WHERE idEmployee=?";
     private static final String ADMIN = "SELECT e.idEmployee, e.dni, e.name, e.password, e.Admin FROM employees AS e WHERE e.Admin=?";
@@ -114,6 +113,7 @@ public class EmployeeDAO implements DAO<Employee,String> {
                     e.setIdEmployee(res.getString("idEmployee"));
                     e.setDNI(res.getString("DNI"));
                     e.setName(res.getString("name"));
+                    result.add(e);
                 }
             }
         }catch (SQLException e) {

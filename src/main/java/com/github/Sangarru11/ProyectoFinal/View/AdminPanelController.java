@@ -71,7 +71,7 @@ public class AdminPanelController extends Controller implements Initializable {
                 if (event.getClickCount() == 3 && (! row.isEmpty()) ) {
                     Repairs repairs = row.getItem();
                     try {
-                        changeScene(Scenes.MechanicInfo,repair.getEmployees());//panel que al clicar en la tabla cambia
+                        changeScene(Scenes.MechanicInfo,repair.getEmployees());
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -170,4 +170,9 @@ public class AdminPanelController extends Controller implements Initializable {
     public void ChangeAddCustomer() throws IOException{
         changeScene(Scenes.AddCustomersPanel,null);
     }
+    @FXML
+    public void ChangeAssingRepairs() throws IOException{
+        changeScene(Scenes.AssingRepairs,null);
+    }
+
 }

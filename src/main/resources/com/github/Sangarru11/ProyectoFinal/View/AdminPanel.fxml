@@ -24,35 +24,62 @@
                   <Image url="@ImagenPrincipal.png" />
                </image>
             </ImageView>
-            <HBox fillHeight="false" prefHeight="35.0" prefWidth="164.0">
+            <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fitHeight="53.0" fitWidth="52.0" onMouseClicked="#ChangeAddCustomer" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <image>
-                        <Image url="@AddCustomer.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <Text onMouseClicked="#ChangeAddCustomer" strokeType="OUTSIDE" strokeWidth="0.0" text="Añadir Clientes" wrappingWidth="100.13674926757812">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Text>
+                  <HBox fillHeight="false" prefHeight="35.0" prefWidth="164.0">
+                     <children>
+                        <ImageView fitHeight="53.0" fitWidth="52.0" onMouseClicked="#ChangeAddCustomer" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@AddCustomer.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Text onMouseClicked="#ChangeAddCustomer" strokeType="OUTSIDE" strokeWidth="0.0" text="Añadir Clientes" wrappingWidth="100.13674926757812">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="10.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="53.0" fitWidth="52.0" onMouseClicked="#ChangeAssingRepairs" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assign%20.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Text onMouseClicked="#ChangeAssingRepairs" strokeType="OUTSIDE" strokeWidth="0.0" text="Asignar Reparaciones" wrappingWidth="126.80337524414062">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="10.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                  </HBox>
                </children>
                <HBox.margin>
-                  <Insets left="250.0" />
+                  <Insets left="200.0" />
                </HBox.margin>
-            </HBox>
+            </VBox>
          </children>
       </HBox>
       <Text fill="WHITE" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Reparaciones en curso" textAlignment="CENTER">

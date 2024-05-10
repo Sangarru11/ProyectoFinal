@@ -6,6 +6,7 @@ public enum Scenes {
     PrinPanel("View/PrincipalPanel.fxml"),
     AddCustomersPanel("View/AddCustomers.fxml"),
     MechanicInfo("View/MechanicInfo.fxml"),
+    AssingRepairs("View/AssingRepairs.fxml"),
     AdminPanel("View/AdminPanel.fxml");
 
     private String url;
