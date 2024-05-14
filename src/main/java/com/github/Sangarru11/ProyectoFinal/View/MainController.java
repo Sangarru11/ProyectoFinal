@@ -24,11 +24,6 @@ public class MainController extends Controller implements Initializable {
     @FXML
     private PasswordField txtPassword;
 
-    @FXML
-    private Button btnLogin;
-    @FXML
-    private Button btnRegister;
-
     @Override
     public void onOpen(Object input) throws IOException {
 

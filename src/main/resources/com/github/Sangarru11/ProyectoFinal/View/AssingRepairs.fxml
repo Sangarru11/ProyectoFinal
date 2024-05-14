@@ -2,9 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="792.0" prefWidth="815.0" spacing="20.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.Sangarru11.ProyectoFinal.View.AssignRepairsPanelController">
+<VBox alignment="CENTER" prefHeight="616.0" prefWidth="815.0" spacing="20.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.Sangarru11.ProyectoFinal.View.AssignRepairsPanelController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -30,41 +28,17 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <MenuButton fx:id="MenuButtonMechanic" layoutX="173.0" layoutY="132.0" mnemonicParsing="false" text="MenuButton">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
-            </MenuButton>
-            <Text layoutX="153.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elegir Mecanico">
+            <Text layoutX="126.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccionar Mecanico">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="493.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elegir Cliente">
+            <Text layoutX="467.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccionar Cliente">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <MenuButton fx:id="MenuButtonClient" layoutX="502.0" layoutY="132.0" mnemonicParsing="false" text="MenuButton">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Action 1" />
-                  <MenuItem mnemonicParsing="false" text="Action 2" />
-               </items>
-            </MenuButton>
-            <TextField fx:id="txtMechanic" layoutX="127.0" layoutY="272.0" prefHeight="25.0" prefWidth="189.0" />
-            <Text layoutX="135.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mecanico Asignado">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text layoutX="476.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente Asignado">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <TextField fx:id="txtClient" layoutX="456.0" layoutY="272.0" prefHeight="25.0" prefWidth="189.0" />
-            <ImageView fitHeight="121.0" fitWidth="99.0" layoutX="338.0" layoutY="382.0" onMouseClicked="#AssignRepairs" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="121.0" fitWidth="99.0" layoutX="338.0" layoutY="260.0" onMouseClicked="#AssignRepairs" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@BotonReparaciones.png" />
                </image>
@@ -72,6 +46,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+            <ComboBox fx:id="EmployeeComboBox" layoutX="146.0" layoutY="163.0" prefWidth="150.0" />
+            <ComboBox fx:id="CustomersComboBox" layoutX="475.0" layoutY="163.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
       <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">

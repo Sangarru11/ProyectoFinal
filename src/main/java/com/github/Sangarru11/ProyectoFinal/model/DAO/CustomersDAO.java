@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomersDAO implements DAO<Customers,String> {
-    private static final String FINDBYDNI = "SELECT c.idCustomer, c.dni, c.name, c.phoneNumber, c.plateNumber FROM customers AS c WHERE dni=?";
-    private static final String FINDBYID = "SELECT c.idCustomer, c.dni, c.name, c.phoneNumber, c.plateNumber FROM customers AS c WHERE c.idCustomer = ?";
-    private static final String FINDBYNAME = "SELECT c.idCustomer, c.dni, c.name, c.phoneNumber, c.plateNumber FROM customers WHERE name = ?";
+    private static final String FINDBYDNI = "SELECT c.idCustomer, c.dni, c.name, c.phoneNumber, c.plateNumber FROM customers AS c WHERE c.dni=?";
+    private static final String FINDBYID = "SELECT c.IdCustomer, c.dni, c.name, c.phoneNumber, c.plateNumber FROM customers AS c WHERE c.IdCustomer = ?";
+    private static final String FINDBYNAME = "SELECT c.IdCustomer, c.dni, c.name, c.phoneNumber, c.plateNumber FROM customers AS c WHERE c.name = ?";
     private static final String INSERT = "INSERT INTO customers (dni, name, phoneNumber, plateNumber) VALUES (?, ?, ?, ?)";
     private static final String UPDATE = "UPDATE customers SET name=? WHERE idCustomer=?";
     private static final String DELETE = "DELETE FROM customers WHERE idCustomer=?";
@@ -104,7 +104,6 @@ public class CustomersDAO implements DAO<Customers,String> {
             try (ResultSet res = pst.executeQuery()){
                 while (res.next()){
                     Customers c = new Customers();
-                    c.setIdCustomer(res.getString("idcustomers"));
                     c.setDNI(res.getString("DNI"));
                     c.setName(res.getString("Name"));
                     c.setPhoneNumber(res.getString("PhoneNumber"));

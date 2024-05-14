@@ -1,0 +1,14 @@
+
+a
+java:S1192]"KDefine a constant instead of duplicating this literal "idEmployee" 4 times.(Ñ¨Ü¦
+_
+java:S1192`"IDefine a constant instead of duplicating this literal "password" 3 times.(Ôá™
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ºÌº)
+
+java:S1186®"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(æÔ«÷şÿÿÿÿ
+J
+java:S2695)"/This "PreparedStatement" only has 3 parameters.(ø¦ÂÖøÿÿÿÿ
+:
+java:S6905m"Don't use the query "SELECT *".(¢›ñ³şÿÿÿÿ
+p
+java:S1128"URemove this unused import 'com.github.Sangarru11.ProyectoFinal.model.entity.Repairs'.(² Šııÿÿÿÿ

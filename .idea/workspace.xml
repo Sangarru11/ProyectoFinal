@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1d6d572-1f0a-4852-8f72-beb28a444c8d" name="Changes" comment="CustomersDAO &quot;Terminao&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/AssignRepairsPanelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/AssingRepairs.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/assign .png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/RepairEmployeeDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/AdminPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/AdminPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/AssignRepairsPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/AssignRepairsPanelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/PrincipalPanelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/PrincipalPanelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/Scenes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/View/Scenes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/EmployeeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/CustomersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/CustomersDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/RepairsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/Sangarru11/ProyectoFinal/model/DAO/RepairsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/AdminPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/AdminPanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/AssingRepairs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/github/Sangarru11/ProyectoFinal/View/AssingRepairs.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -80,7 +81,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;RegisterFuncionando&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;EmpezandoAssingRepairs&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/santi/IdeaProjects/ProyectoFinal/src/main/resources/com/github/Sangarru11/ProyectoFinal/View&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -165,7 +166,12 @@
       <workItem from="1715240149022" duration="15247000" />
       <workItem from="1715283607067" duration="2148000" />
       <workItem from="1715321713739" duration="8817000" />
-      <workItem from="1715340607060" duration="1088000" />
+      <workItem from="1715340607060" duration="2369000" />
+      <workItem from="1715547020998" duration="54000" />
+      <workItem from="1715547092329" duration="775000" />
+      <workItem from="1715547885790" duration="631000" />
+      <workItem from="1715593042748" duration="7991000" />
+      <workItem from="1715716634182" duration="7910000" />
     </task>
     <task id="LOCAL-00001" summary="Comienzo del proyecto primer commit con constructores etc">
       <option name="closed" value="true" />
