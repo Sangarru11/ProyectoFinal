@@ -1,0 +1,8 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(´´…Àÿÿÿÿÿ
+[
+java:S2259Q"EA "NullPointerException" could be thrown; "repairs" is nullable here.(­úã
+W
+java:S1854N"<Remove this useless assignment to local variable "isEquals".(‚×‚‡ûÿÿÿÿ
+R
+java:S1854O"<Remove this useless assignment to local variable "isEquals".(ù¹Õ‡

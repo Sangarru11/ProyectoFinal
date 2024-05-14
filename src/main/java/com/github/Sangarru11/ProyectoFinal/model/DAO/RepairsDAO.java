@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RepairsDAO implements DAO<Repairs,String> {
-    private static final String FINDBYID = "SELECT r.idRepair, r.date, r.status, r.description, r.plateNumber FROM repairs AS r WHERE r.idRepair = ?";
+    private static final String FINDBYID = "SELECT r.IdRepair, r.date, r.status, r.description, r.plateNumber FROM repairs AS r WHERE r.IdRepair = ?";
     private static final String FINDBYDATE = "SELECT r.date, r.status, r.description, r.plateNumber FROM repairs AS r WHERE r.date = ?";
     private static final String INSERT = "INSERT INTO repairs (date, status, description, plateNumber) VALUES (?, ?, ?, ?)";
     private static final String UPDATE = "UPDATE repairs SET date=?, status=?, description=?, plateNumber=? WHERE idRepair=?";
@@ -57,7 +57,6 @@ public class RepairsDAO implements DAO<Repairs,String> {
         }
         return result;
     }
-
     @Override
     public Repairs delete(Repairs entity) throws SQLException {
         if (entity != null) {
@@ -156,8 +155,7 @@ public class RepairsDAO implements DAO<Repairs,String> {
     }
 }
 class RepairsLazy extends Repairs{
-    private static final String FINDEMPLOYEESBYREPAIR = "SELECT e.* FROM repairs r,repair_employee re, employees e WHERE r.idRepair=re.idRepair AND re.idEmployee=e.idEmployee AND r.idRepair=?";
-
+    private static final String FINDEMPLOYEESBYREPAIR = "SELECT e.* FROM repairs r,repair_employee re, employees e WHERE r.IdRepair=re.IdRepair AND re.IdEmployee=e.IdEmployee AND r.IdRepair=?";
     public RepairsLazy() {
 
     }

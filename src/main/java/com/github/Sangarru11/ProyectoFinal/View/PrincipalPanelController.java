@@ -31,8 +31,6 @@ public class PrincipalPanelController extends Controller implements Initializabl
     @FXML
     private TableColumn<Repairs, String> columnRepairState;
     @FXML
-    private TableColumn<Repairs, String> columnIdMechanic;
-    @FXML
     private TableColumn<Repairs, String> columnPlateNumber;
     private ObservableList<Repairs> repairs;
     @Override
