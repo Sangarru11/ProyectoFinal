@@ -47,7 +47,7 @@ public class RepairsDAO implements DAO<Repairs,String> {
                         pst.setString(2, entity.getStatus());
                         pst.setString(3, entity.getDescription());
                         pst.setString(4, entity.getPlateNumber());
-                        pst.setString(5, entity.getIdRepair());
+                        pst.setInt(5, entity.getIdRepair());
                         pst.executeUpdate();
                     }catch (SQLException e) {
                         e.printStackTrace();
@@ -61,7 +61,7 @@ public class RepairsDAO implements DAO<Repairs,String> {
     public Repairs delete(Repairs entity) throws SQLException {
         if (entity != null) {
             try (PreparedStatement pst = connection.prepareStatement(DELETE)) {
-                pst.setString(1, entity.getIdRepair());
+                pst.setInt(1, entity.getIdRepair());
                 pst.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -83,7 +83,7 @@ public class RepairsDAO implements DAO<Repairs,String> {
             try (ResultSet res = pst.executeQuery()) {
                 if (res.next()) {
                     RepairsLazy c = new RepairsLazy();
-                    c.setIdRepair(res.getString("idRepair"));
+                    c.setIdRepair(res.getInt("idRepair"));
                     c.setDate(res.getString("date"));
                     c.setStatus(res.getString("status"));
                     c.setDescription(res.getString("description"));
@@ -103,7 +103,7 @@ public class RepairsDAO implements DAO<Repairs,String> {
             try (ResultSet res = pst.executeQuery()) {
                 while (res.next()) {
                     RepairsLazy r = new RepairsLazy();
-                    r.setIdRepair(res.getString("idRepair"));
+                    r.setIdRepair(res.getInt("idRepair"));
                     r.setDate(res.getString("date"));
                     r.setStatus(res.getString("status"));
                     r.setDescription(res.getString("description"));
@@ -159,7 +159,7 @@ class RepairsLazy extends Repairs{
     public RepairsLazy() {
 
     }
-    public RepairsLazy(String idRepair, List<Employee> employees, String date, String status, String description, String plateNumber) {
+    public RepairsLazy(int idRepair, List<Employee> employees, String date, String status, String description, String plateNumber) {
         super(idRepair, employees, date, status, description, plateNumber);
     }
     @Override
@@ -168,11 +168,11 @@ class RepairsLazy extends Repairs{
                 Connection connection = ConnectionMariaDB.getConnection();
                 List<Employee> result = new ArrayList<>();
                 try (PreparedStatement pst = connection.prepareStatement(FINDEMPLOYEESBYREPAIR)) {
-                    pst.setString(1, getIdRepair());
+                    pst.setInt(1, getIdRepair());
                     try (ResultSet res = pst.executeQuery()) {
                         while (res.next()) {
                             Employee e = new Employee();
-                            e.setIdEmployee(res.getString("idEmployee"));
+                            e.setIdEmployee(res.getInt("idEmployee"));
                             e.setDNI(res.getString("DNI"));
                             e.setName(res.getString("name"));
                             result.add(e);

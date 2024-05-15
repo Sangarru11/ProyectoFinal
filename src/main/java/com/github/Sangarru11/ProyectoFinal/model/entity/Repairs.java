@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Repairs {
 
-    private String idRepair;
+    private int idRepair;
     private List<Employee> employees;
     private String date;
     private String status;
@@ -15,7 +15,7 @@ public class Repairs {
     public Repairs() {
     }
 
-    public Repairs(String idRepair, List<Employee> employees, String date, String status, String description, String plateNumber) {
+    public Repairs(int idRepair, List<Employee> employees, String date, String status, String description, String plateNumber) {
         this.idRepair = idRepair;
         this.employees = employees;
         this.date = date;
@@ -24,11 +24,11 @@ public class Repairs {
         this.plateNumber = plateNumber;
     }
 
-    public String getIdRepair() {
+    public int getIdRepair() {
         return idRepair;
     }
 
-    public void setIdRepair(String idRepair) {
+    public void setIdRepair(int idRepair) {
         this.idRepair = idRepair;
     }
 

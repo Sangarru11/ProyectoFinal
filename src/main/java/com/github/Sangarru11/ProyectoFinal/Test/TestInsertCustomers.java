@@ -6,7 +6,7 @@ import com.github.Sangarru11.ProyectoFinal.model.entity.Customers;
 public class TestInsertCustomers {
     public static void main(String[] args) {
         Customers customer = new Customers();
-        customer.setIdCustomer("1");
+        customer.setIdCustomer(1);
         customer.setDNI("12345678A");
         customer.setName("Juan Perez");
         customer.setPhoneNumber("123456789");

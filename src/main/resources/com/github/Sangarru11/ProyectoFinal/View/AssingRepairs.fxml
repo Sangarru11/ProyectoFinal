@@ -28,12 +28,12 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="126.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccionar Mecanico">
+            <Text layoutX="119.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccionar Reparacion">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="467.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccionar Cliente">
+            <Text layoutX="455.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccionar Mecanico">
                <font>
                   <Font size="20.0" />
                </font>
@@ -46,7 +46,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ComboBox fx:id="EmployeeComboBox" layoutX="146.0" layoutY="163.0" prefWidth="150.0" />
+            <ComboBox fx:id="RepairsComboBox" layoutX="146.0" layoutY="163.0" prefWidth="150.0" />
             <ComboBox fx:id="CustomersComboBox" layoutX="475.0" layoutY="163.0" prefWidth="150.0" />
          </children>
       </AnchorPane>

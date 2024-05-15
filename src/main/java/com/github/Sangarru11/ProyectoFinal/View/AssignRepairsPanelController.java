@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 public class AssignRepairsPanelController extends Controller implements Initializable {
 
     @FXML
-    private ComboBox<String> EmployeeComboBox;
+    private ComboBox<String> RepairsComboBox;
     @FXML
     private ComboBox<String> CustomersComboBox;
 
@@ -50,34 +50,33 @@ public class AssignRepairsPanelController extends Controller implements Initiali
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<Employee> employees = EmployeeDAO.build().findbyAll();
-        List<String> employeeNames = employees.stream().map(Employee::getName).collect(Collectors.toList());
-        EmployeeComboBox.setItems(FXCollections.observableArrayList(employeeNames));
+        List<Repairs> repairs = RepairsDAO.build().findbyAll();
+        List<String> RepairsID = repairs.stream().map(repair -> String.valueOf(repair.getIdRepair())).collect(Collectors.toList());
+        RepairsComboBox.setItems(FXCollections.observableArrayList(RepairsID));
         List<Customers> customers = CustomersDAO.build().findbyAll();
         List<String> CustomersNames = customers.stream().map(Customers::getName).collect(Collectors.toList());
         CustomersComboBox.setItems(FXCollections.observableArrayList(CustomersNames));
     }
     @FXML
     private void AssignRepairs() throws IOException {
-        String employeeName = EmployeeComboBox.getValue();
+        String IdRepair= RepairsComboBox.getValue();
         String customerName = CustomersComboBox.getValue();
         EmployeeDAO employeeDAO = new EmployeeDAO();
-        Employee employee = employeeDAO.findByName(employeeName);
+        Repairs repairs = RepairsDAO.build().findById(IdRepair);
         CustomersDAO customersDAO = new CustomersDAO();
         Customers customer = customersDAO.findByName(customerName);
 
-        if (employee != null && customer != null) {
-            String idEmployee = employee.getIdEmployee();
-            String idCustomer = customer.getIdCustomer();
+        if (repairs != null && customer != null) {
+            int idRepair = repairs.getIdRepair();
+            int idCustomer = customer.getIdCustomer();
             RepairEmployeeDAO repairEmployeeDAO = new RepairEmployeeDAO();
-            repairEmployeeDAO.assignEmployeeToRepair(idEmployee, idCustomer);
+            repairEmployeeDAO.assignEmployeeToRepair(idRepair, idCustomer);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("No se ha seleccionado nada en la base de datos");
             alert.show();
         }
     }
-
 
     @FXML
     public void BackAdminPanel() throws IOException{

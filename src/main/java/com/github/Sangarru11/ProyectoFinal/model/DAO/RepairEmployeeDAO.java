@@ -7,6 +7,7 @@ import com.github.Sangarru11.ProyectoFinal.model.entity.RepairEmployee;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -17,16 +18,16 @@ public class RepairEmployeeDAO implements DAO<RepairEmployee,String> {
     public RepairEmployeeDAO() {
         connection = ConnectionMariaDB.getConnection();
     }
-    public void assignEmployeeToRepair(String IdRepair, String IdEmployee) {
+    public void assignEmployeeToRepair(int IdRepair, int IdEmployee) {
         try (PreparedStatement pst = connection.prepareStatement(INSERTEMPLOYEEREPAIRS)) {
-            pst.setString(1, IdRepair);
-            pst.setString(2, IdEmployee);
+            pst.setInt(1, IdRepair);
+            pst.setInt(2, IdEmployee);
             pst.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
+    
     @Override
     public RepairEmployee save(RepairEmployee entity) {
         return null;

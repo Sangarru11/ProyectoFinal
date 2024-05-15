@@ -3,6 +3,7 @@ package com.github.Sangarru11.ProyectoFinal.View;
 import com.github.Sangarru11.ProyectoFinal.App;
 import com.github.Sangarru11.ProyectoFinal.model.DAO.RepairsDAO;
 import com.github.Sangarru11.ProyectoFinal.model.entity.Repairs;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -56,7 +57,7 @@ public class PrincipalPanelController extends Controller implements Initializabl
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tableView.setEditable(true);
-        columnIDRepair.setCellValueFactory(repairs-> new SimpleStringProperty(repairs.getValue().getIdRepair()));
+        columnIDRepair.setCellValueFactory(repairs -> new SimpleIntegerProperty(repairs.getValue().getIdRepair()).asObject().asString());
         columnDescription.setCellValueFactory(repairs-> new SimpleStringProperty(repairs.getValue().getDescription()));
         columnRepairDate.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getDate()));
         columnRepairState.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getStatus()));

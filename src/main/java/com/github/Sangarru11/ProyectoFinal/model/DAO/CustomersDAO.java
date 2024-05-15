@@ -47,7 +47,7 @@ public class CustomersDAO implements DAO<Customers,String> {
                 }else{
                     try (PreparedStatement pst = connection.prepareStatement(UPDATE)) {
                         pst.setString(1, entity.getName());
-                        pst.setString(2, entity.getIdCustomer());
+                        pst.setInt(2, entity.getIdCustomer());
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -61,7 +61,7 @@ public class CustomersDAO implements DAO<Customers,String> {
     public Customers delete(Customers entity) {
         if (entity != null) {
             try (PreparedStatement pst = connection.prepareStatement(DELETE)) {
-                pst.setString(1, entity.getIdCustomer());
+                pst.setInt(1, entity.getIdCustomer());
                 pst.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -83,7 +83,7 @@ public class CustomersDAO implements DAO<Customers,String> {
             try(ResultSet res = pst.executeQuery()){
                 if(res.next()){
                     Customers c = new Customers();
-                    c.setIdCustomer(res.getString("idCustomer"));
+                    c.setIdCustomer(res.getInt("idCustomer"));
                     c.setDNI(res.getString("dni"));
                     c.setName(res.getString("name"));
                     c.setPhoneNumber(res.getString("phoneNumber"));
@@ -130,7 +130,7 @@ public class CustomersDAO implements DAO<Customers,String> {
             try(ResultSet res = pst.executeQuery()){
                 if(res.next()){
                     Customers c = new Customers();
-                    c.setIdCustomer(res.getString("idCustomer"));
+                    c.setIdCustomer(res.getInt("idCustomer"));
                     c.setDNI(res.getString("dni"));
                     c.setName(res.getString("name"));
                     c.setPhoneNumber(res.getString("phoneNumber"));
@@ -151,7 +151,7 @@ public class CustomersDAO implements DAO<Customers,String> {
             try(ResultSet res = pst.executeQuery()){
                 if(res.next()){
                     Customers c = new Customers();
-                    c.setIdCustomer(res.getString("idCustomer"));
+                    c.setIdCustomer(res.getInt("idCustomer"));
                     c.setDNI(res.getString("dni"));
                     c.setName(res.getString("name"));
                     c.setPhoneNumber(res.getString("phoneNumber"));
