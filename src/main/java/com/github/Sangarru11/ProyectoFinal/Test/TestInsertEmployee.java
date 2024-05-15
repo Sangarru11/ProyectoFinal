@@ -8,7 +8,7 @@ public class TestInsertEmployee {
     public static void main(String[] args) {
 
         Employee employee = new Employee();
-        employee.setIdEmployee("12");
+        employee.setIdEmployee(1);
         employee.setDNI("75829349X");
         employee.setName("Pepillo Fernandez");
         employee.setPassword("2222");

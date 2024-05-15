@@ -7,7 +7,7 @@ public class TestInsertRepairs {
     public static void main(String[] args) {
 
         Repairs repairs = new Repairs();
-        repairs.setIdRepair("1");
+        repairs.setIdRepair(1);
         repairs.setPlateNumber("1234");
         repairs.setDescription("description");
         repairs.setDate("2022-12-12");

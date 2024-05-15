@@ -3,7 +3,7 @@ package com.github.Sangarru11.ProyectoFinal.model.entity;
 import java.util.Objects;
 
 public class Customers {
-    private String idCustomer;
+    private int idCustomer;
     private String name;
     private String PhoneNumber;
     private String DNI;
@@ -12,7 +12,7 @@ public class Customers {
     public Customers() {
     }
 
-    public Customers(String idCustomer, String name, String phoneNumber, String DNI, String plateNumber) {
+    public Customers(int idCustomer, String name, String phoneNumber, String DNI, String plateNumber) {
         this.idCustomer = idCustomer;
         this.name = name;
         this.PhoneNumber = phoneNumber;
@@ -20,11 +20,11 @@ public class Customers {
         this.plateNumber = plateNumber;
     }
 
-    public String getIdCustomer() {
+    public int getIdCustomer() {
         return idCustomer;
     }
 
-    public void setIdCustomer(String idCustomer) {
+    public void setIdCustomer(int idCustomer) {
         this.idCustomer = idCustomer;
     }
 

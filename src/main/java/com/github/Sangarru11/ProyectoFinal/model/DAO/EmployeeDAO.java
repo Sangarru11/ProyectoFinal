@@ -46,7 +46,7 @@ public class EmployeeDAO implements DAO<Employee,String> {
                 } else {
                     try (PreparedStatement pst = connection.prepareStatement(UPDATE)) {
                         pst.setString(1, entity.getName());
-                        pst.setString(2, entity.getIdEmployee());
+                        pst.setInt(2, entity.getIdEmployee());
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -60,7 +60,7 @@ public class EmployeeDAO implements DAO<Employee,String> {
     public Employee delete(Employee entity) throws SQLException {
         if (entity != null) {
             try (PreparedStatement pst = connection.prepareStatement(DELETE)) {
-                pst.setString(1, entity.getIdEmployee());
+                pst.setInt(1, entity.getIdEmployee());
                 pst.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -90,7 +90,7 @@ public class EmployeeDAO implements DAO<Employee,String> {
             try (ResultSet res = pst.executeQuery()) {
                 if (res.next()) {
                     Employee c = new Employee();
-                    c.setIdEmployee(res.getString("idEmployee"));
+                    c.setIdEmployee(res.getInt("idEmployee"));
                     c.setDNI(res.getString("dni"));
                     c.setName(res.getString("name"));
                     c.setPassword(res.getString("password"));
@@ -110,7 +110,7 @@ public class EmployeeDAO implements DAO<Employee,String> {
             try (ResultSet res = pst.executeQuery()){
                 while(res.next()){
                     Employee e = new Employee();
-                    e.setIdEmployee(res.getString("idEmployee"));
+                    e.setIdEmployee(res.getInt("idEmployee"));
                     e.setDNI(res.getString("DNI"));
                     e.setName(res.getString("name"));
                     result.add(e);
@@ -135,7 +135,7 @@ public class EmployeeDAO implements DAO<Employee,String> {
             try (ResultSet res = pst.executeQuery()) {
                 if (res.next()) {
                     Employee c = new Employee();
-                    c.setIdEmployee(res.getString("idEmployee"));
+                    c.setIdEmployee(res.getInt("idEmployee"));
                     c.setDNI(res.getString("dni"));
                     c.setName(res.getString("name"));
                     c.setPassword(res.getString("password"));
@@ -156,7 +156,7 @@ public class EmployeeDAO implements DAO<Employee,String> {
             try (ResultSet res = pst.executeQuery()) {
                 if (res.next()) {
                     Employee c = new Employee();
-                    c.setIdEmployee(res.getString("idEmployee"));
+                    c.setIdEmployee(res.getInt("idEmployee"));
                     c.setDNI(res.getString("dni"));
                     c.setName(res.getString("name"));
                     c.setPassword(res.getString("password"));

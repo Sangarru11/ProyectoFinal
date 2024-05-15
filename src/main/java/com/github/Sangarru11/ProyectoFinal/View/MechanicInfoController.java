@@ -2,6 +2,7 @@ package com.github.Sangarru11.ProyectoFinal.View;
 
 import com.github.Sangarru11.ProyectoFinal.App;
 import com.github.Sangarru11.ProyectoFinal.model.entity.Employee;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -48,10 +49,11 @@ public class MechanicInfoController extends Controller implements Initializable 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tableView.setEditable(true);
-        columnIDMechanic.setCellValueFactory(employees -> new SimpleStringProperty(employees.getValue().getIdEmployee()));
-        columnDNIMechanic.setCellValueFactory(employees -> new SimpleStringProperty(employees.getValue().getDNI()));
-        columnNameMechanic.setCellValueFactory(employees -> new SimpleStringProperty(employees.getValue().getName()));
+        columnIDMechanic.setCellValueFactory(data -> new SimpleIntegerProperty(data.getValue().getIdEmployee()).asObject().asString());
+        columnDNIMechanic.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDNI()));
+        columnNameMechanic.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getName()));
     }
+
     @FXML
     public void BackAdminPanel()throws IOException{
         changeScene(Scenes.AdminPanel,null);

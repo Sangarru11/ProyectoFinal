@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Employee {
-    private String idEmployee;
+    private int idEmployee;
     private List<Repairs> _repairs;
     private String name;
     private String DNI;
@@ -14,7 +14,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String idEmployee, List<Repairs> _repairs, String name, String DNI, String password, String plateNumber, boolean isAdmin) {
+    public Employee(int idEmployee, List<Repairs> _repairs, String name, String DNI, String password, String plateNumber, boolean isAdmin) {
         this.idEmployee = idEmployee;
         this._repairs = _repairs;
         this.name = name;
@@ -39,11 +39,11 @@ public class Employee {
         this._repairs = _repairs;
     }
 
-    public String getIdEmployee() {
+    public int getIdEmployee() {
         return idEmployee;
     }
 
-    public void setIdEmployee(String idEmployee) {
+    public void setIdEmployee(int idEmployee) {
         this.idEmployee = idEmployee;
     }
 

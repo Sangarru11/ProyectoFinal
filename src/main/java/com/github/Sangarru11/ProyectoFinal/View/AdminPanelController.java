@@ -3,6 +3,7 @@ package com.github.Sangarru11.ProyectoFinal.View;
 import com.github.Sangarru11.ProyectoFinal.App;
 import com.github.Sangarru11.ProyectoFinal.model.DAO.RepairsDAO;
 import com.github.Sangarru11.ProyectoFinal.model.entity.Repairs;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +18,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -74,9 +76,9 @@ public class AdminPanelController extends Controller implements Initializable {
             });
             return row ;
         });
-        columnIDRepair.setCellValueFactory(repairs-> new SimpleStringProperty(repairs.getValue().getIdRepair()));
-        columnIDRepair.setCellFactory(TextFieldTableCell.forTableColumn());
-        columnIDRepair.setOnEditCommit(event -> {
+        columnDescription.setCellValueFactory(repairs-> new SimpleStringProperty(repairs.getValue().getDescription()));
+        columnDescription.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnDescription.setOnEditCommit(event -> {
             if(event.getNewValue()== event.getOldValue()){
                 return;
             }
@@ -90,9 +92,9 @@ public class AdminPanelController extends Controller implements Initializable {
                 alert.show();
             }
         });
-        columnDescription.setCellValueFactory(repairs-> new SimpleStringProperty(repairs.getValue().getDescription()));
-        columnDescription.setCellFactory(TextFieldTableCell.forTableColumn());
-        columnDescription.setOnEditCommit(event -> {
+        columnIDRepair.setCellValueFactory(repairs -> new SimpleIntegerProperty(repairs.getValue().getIdRepair()).asObject().asString());
+        columnIDRepair.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnIDRepair.setOnEditCommit(event -> {
             if(event.getNewValue()== event.getOldValue()){
                 return;
             }
@@ -155,7 +157,30 @@ public class AdminPanelController extends Controller implements Initializable {
             }
         });
     }
+    @FXML
+    public void CreateRepair() throws IOException{
+        String currentDate = LocalDate.now().toString();
+        String status = "Sin empezar";
+        String description = "Introducir Descripcion";
+        String platenumber = "Añadir";
+        RepairsDAO repairsDAO = RepairsDAO.build();
+        Repairs newRepair = new Repairs();
+        newRepair.setPlateNumber(platenumber);
+        newRepair.setDescription(description);
+        newRepair.setDate(currentDate);
+        newRepair.setStatus(status);
+        Repairs savedRepair = repairsDAO.save(newRepair);
+        if (savedRepair != null) {
+            tableView.getItems().add(savedRepair);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Se ha creado una nueva reparación");
+            alert.show();
+        }
+    }
+    @FXML
+    public void setAdmin() throws IOException{
 
+    }
     @FXML
     public void ReturnToLogin() throws IOException {
         changeScene(Scenes.MAIN,null);

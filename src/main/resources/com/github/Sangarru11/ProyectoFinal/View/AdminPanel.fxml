@@ -70,7 +70,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <HBox.margin>
-                              <Insets bottom="20.0" left="10.0" />
+                              <Insets bottom="20.0" left="10.0" right="20.0" />
                            </HBox.margin>
                         </Text>
                      </children>
@@ -79,6 +79,56 @@
                <HBox.margin>
                   <Insets left="200.0" />
                </HBox.margin>
+            </VBox>
+            <VBox prefHeight="150.0" prefWidth="288.0">
+               <children>
+                  <HBox prefHeight="61.0" prefWidth="181.0">
+                     <children>
+                        <ImageView fitHeight="53.0" fitWidth="52.0" onMouseClicked="#CreateRepair" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@CreateRepair.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <HBox.margin>
+                              <Insets bottom="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Text onMouseClicked="#CreateRepair" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear Reparacion" wrappingWidth="100.13674926757812">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <HBox.margin>
+                              <Insets bottom="20.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="53.0" fitWidth="52.0" onMouseClicked="#setAdmin" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Admin.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <Text onMouseClicked="#setAdmin" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificar Administradores" wrappingWidth="155.47012329101562">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
             </VBox>
          </children>
       </HBox>
