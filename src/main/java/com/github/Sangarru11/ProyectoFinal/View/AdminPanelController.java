@@ -10,10 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.io.IOException;
@@ -159,23 +156,7 @@ public class AdminPanelController extends Controller implements Initializable {
     }
     @FXML
     public void CreateRepair() throws IOException{
-        String currentDate = LocalDate.now().toString();
-        String status = "Sin empezar";
-        String description = "Introducir Descripcion";
-        String platenumber = "Añadir";
-        RepairsDAO repairsDAO = RepairsDAO.build();
-        Repairs newRepair = new Repairs();
-        newRepair.setPlateNumber(platenumber);
-        newRepair.setDescription(description);
-        newRepair.setDate(currentDate);
-        newRepair.setStatus(status);
-        Repairs savedRepair = repairsDAO.save(newRepair);
-        if (savedRepair != null) {
-            tableView.getItems().add(savedRepair);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Se ha creado una nueva reparación");
-            alert.show();
-        }
+        changeScene(Scenes.CreateRepair,null);
     }
     @FXML
     public void setAdmin() throws IOException{

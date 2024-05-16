@@ -15,6 +15,7 @@ import java.util.List;
 public class RepairsDAO implements DAO<Repairs,String> {
     private static final String FINDBYID = "SELECT r.IdRepair, r.date, r.status, r.description, r.plateNumber FROM repairs AS r WHERE r.IdRepair = ?";
     private static final String FINDBYDATE = "SELECT r.date, r.status, r.description, r.plateNumber FROM repairs AS r WHERE r.date = ?";
+    private static final String FINDBYPLATENUMBER = "SELECT r.date, r.status, r.description, r.plateNumber FROM repairs AS r WHERE r.plateNumber = ?";
     private static final String INSERT = "INSERT INTO repairs (date, status, description, plateNumber) VALUES (?, ?, ?, ?)";
     private static final String UPDATE = "UPDATE repairs SET date=?, status=?, description=?, plateNumber=? WHERE idRepair=?";
     private static final String DELETE = "DELETE FROM repairs WHERE idRepair=?";
@@ -28,9 +29,9 @@ public class RepairsDAO implements DAO<Repairs,String> {
     public Repairs save(Repairs entity) {
         Repairs result = entity;
         if (entity != null) {
-            String date = entity.getDate();
-            if (date != null) {
-                Repairs isInDataBase = findByDate(date);
+            String PlateNumber = entity.getPlateNumber();
+            if (PlateNumber != null) {
+                Repairs isInDataBase = findByPlateNumber(PlateNumber);
                 if (isInDataBase == null) {
                     try (PreparedStatement pst = connection.prepareStatement(INSERT)) {
                         pst.setString(1, entity.getDate());
@@ -73,6 +74,27 @@ public class RepairsDAO implements DAO<Repairs,String> {
     @Override
     public Employee adminManage(Employee entity) throws SQLException {
         return null;
+    }
+    @Override
+    public Repairs findByPlateNumber(String key){
+        Repairs result = null;
+        try (PreparedStatement pst = connection.prepareStatement(FINDBYPLATENUMBER)){
+            pst.setString(1,key);
+            try (ResultSet res = pst.executeQuery()){
+                if (res.next()){
+                    RepairsLazy c = new RepairsLazy();
+                    c.setIdRepair(res.getInt("idRepair"));
+                    c.setDate(res.getString("date"));
+                    c.setStatus(res.getString("status"));
+                    c.setDescription(res.getString("description"));
+                    c.setPlateNumber(res.getString("plateNumber"));
+                    result = c;
+                }
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
