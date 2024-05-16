@@ -76,6 +76,11 @@ public class CustomersDAO implements DAO<Customers,String> {
     }
 
     @Override
+    public Repairs findByPlateNumber(String key) {
+        return null;
+    }
+
+    @Override
     public Customers findById(String key) {
         Customers result = null;
         try (PreparedStatement pst = connection.prepareStatement(FINDBYID)) {

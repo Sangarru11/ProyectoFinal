@@ -9,6 +9,7 @@ public enum Scenes {
     AssingRepairs("View/AssingRepairs.fxml"),
     SelectCustomer("View/SelectCustomer.fxml"),
     SelectMechanic("View/SelectMechanic.fxml"),
+    CreateRepair("View/CreateRepair.fxml"),
     AdminPanel("View/AdminPanel.fxml");
 
     private String url;

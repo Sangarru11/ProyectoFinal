@@ -83,6 +83,11 @@ public class EmployeeDAO implements DAO<Employee,String> {
     }
 
     @Override
+    public Repairs findByPlateNumber(String key) {
+        return null;
+    }
+
+    @Override
     public Employee findById(String key) {
         Employee result = null;
         try (PreparedStatement pst = connection.prepareStatement(FINDBYID)) {

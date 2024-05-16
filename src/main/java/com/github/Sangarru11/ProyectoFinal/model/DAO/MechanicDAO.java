@@ -72,6 +72,11 @@ public class MechanicDAO implements DAO<Mechanic,String> {
     }
 
     @Override
+    public Repairs findByPlateNumber(String key) {
+        return null;
+    }
+
+    @Override
     public Mechanic findById(String key) {
         Mechanic result = null;
         try (PreparedStatement pst = connection.prepareStatement(FINDBYID)) {

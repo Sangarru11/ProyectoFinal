@@ -24,7 +24,7 @@
                   <Image url="@ImagenPrincipal.png" />
                </image>
             </ImageView>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="150.0" prefWidth="188.0">
                <children>
                   <HBox fillHeight="false" prefHeight="35.0" prefWidth="164.0">
                      <children>
@@ -80,7 +80,7 @@
                   <Insets left="200.0" />
                </HBox.margin>
             </VBox>
-            <VBox prefHeight="150.0" prefWidth="288.0">
+            <VBox prefHeight="150.0" prefWidth="478.0">
                <children>
                   <HBox prefHeight="61.0" prefWidth="181.0">
                      <children>

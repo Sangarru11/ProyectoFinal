@@ -3,6 +3,7 @@ package com.github.Sangarru11.ProyectoFinal.model.DAO;
 import com.github.Sangarru11.ProyectoFinal.model.Connection.ConnectionMariaDB;
 import com.github.Sangarru11.ProyectoFinal.model.entity.Employee;
 import com.github.Sangarru11.ProyectoFinal.model.entity.RepairEmployee;
+import com.github.Sangarru11.ProyectoFinal.model.entity.Repairs;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -40,6 +41,11 @@ public class RepairEmployeeDAO implements DAO<RepairEmployee,String> {
 
     @Override
     public Employee adminManage(Employee entity) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public Repairs findByPlateNumber(String key) {
         return null;
     }
 

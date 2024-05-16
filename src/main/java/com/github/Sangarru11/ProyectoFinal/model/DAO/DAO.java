@@ -14,6 +14,8 @@ public interface DAO<T,K> extends Closeable {
 
     Employee adminManage(Employee entity) throws SQLException;
 
+    Repairs findByPlateNumber(String key);
+
     T findById(String key);
 
     List<T> findbyAll();
