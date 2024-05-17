@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" prefHeight="680.0" prefWidth="637.0" spacing="20.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.Sangarru11.ProyectoFinal.View.MechanicInfoController">
+<VBox alignment="TOP_CENTER" prefHeight="691.0" prefWidth="767.0" spacing="20.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.Sangarru11.ProyectoFinal.View.MechanicInfoController">
     
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -34,6 +34,27 @@
             <TableColumn fx:id="columnNameMechanic" prefWidth="368.00000508626306" text="Nombre" />
         </columns>
       </TableView>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Eliminar Mecanico">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="74.0" fitWidth="76.0" onMouseClicked="#DeleteMechanic" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Delete.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
       <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="70.0" fitWidth="50.0" onMouseClicked="#BackAdminPanel" pickOnBounds="true" preserveRatio="true">

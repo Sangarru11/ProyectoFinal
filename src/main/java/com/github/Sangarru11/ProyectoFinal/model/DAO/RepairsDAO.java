@@ -83,7 +83,6 @@ public class RepairsDAO implements DAO<Repairs,String> {
             try (ResultSet res = pst.executeQuery()){
                 if (res.next()){
                     RepairsLazy c = new RepairsLazy();
-                    c.setIdRepair(res.getInt("idRepair"));
                     c.setDate(res.getString("date"));
                     c.setStatus(res.getString("status"));
                     c.setDescription(res.getString("description"));

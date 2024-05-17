@@ -10,10 +10,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="709.0" prefWidth="816.0" spacing="20.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.Sangarru11.ProyectoFinal.View.AddCustomersController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
+<VBox alignment="CENTER" prefHeight="709.0" prefWidth="816.0" spacing="20.0" style="-fx-background-color: grey;" stylesheets="@AddCustomers.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.Sangarru11.ProyectoFinal.View.AddCustomersController">
+
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,12 +23,12 @@
       </ImageView>
       <VBox alignment="BASELINE_CENTER" prefHeight="162.0" prefWidth="775.0" VBox.vgrow="SOMETIMES">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Cliente">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-text" text="Nombre Cliente">
                <font>
                   <Font size="17.0" />
                </font>
             </Text>
-            <TextField fx:id="txtNameCustomers" prefHeight="25.0" prefWidth="242.0">
+            <TextField fx:id="txtNameCustomers" prefHeight="25.0" prefWidth="242.0" styleClass="input-field">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
@@ -35,7 +36,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Numero de telefono">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-text" text="Número de Teléfono">
                <font>
                   <Font size="17.0" />
                </font>
@@ -43,12 +44,12 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="txtPhoneNumber">
+            <TextField fx:id="txtPhoneNumber" prefHeight="25.0" prefWidth="242.0" styleClass="input-field">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
             </TextField>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DNI">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-text" text="DNI">
                <font>
                   <Font size="17.0" />
                </font>
@@ -56,12 +57,12 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="txtDNI">
+            <TextField fx:id="txtDNI" prefHeight="25.0" prefWidth="242.0" styleClass="input-field">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
             </TextField>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Numero de Matricula">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-text" text="Número de Matrícula">
                <font>
                   <Font size="17.0" />
                </font>
@@ -69,38 +70,32 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="txtPlateNumber">
+            <TextField fx:id="txtPlateNumber" prefHeight="25.0" prefWidth="242.0" styleClass="input-field">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
             </TextField>
-            <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
+            <HBox alignment="CENTER" spacing="20.0">
                <children>
-                  <ImageView fitHeight="74.0" fitWidth="74.0" onMouseClicked="#addCustomers" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="74.0" fitWidth="74.0" onMouseClicked="#addCustomers" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                      <image>
                         <Image url="@BotonAnadir.png" />
                      </image>
                      <HBox.margin>
-                        <Insets bottom="20.0" />
+                        <Insets />
                      </HBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
                   </ImageView>
                </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="70.0" fitWidth="50.0" onMouseClicked="#changeAdminPanelController" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="70.0" fitWidth="50.0" onMouseClicked="#changeAdminPanelController" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                      <image>
                         <Image url="@Return.png" />
                      </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
                   </ImageView>
                </children>
             </HBox>
