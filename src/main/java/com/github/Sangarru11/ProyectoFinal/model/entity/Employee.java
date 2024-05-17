@@ -14,7 +14,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int idEmployee, List<Repairs> _repairs, String name, String DNI, String password, String plateNumber, boolean isAdmin) {
+    public Employee(int idEmployee, List<Repairs> _repairs, String name, String DNI, String password, boolean isAdmin) {
         this.idEmployee = idEmployee;
         this._repairs = _repairs;
         this.name = name;
@@ -29,14 +29,6 @@ public class Employee {
 
     public void setAdmin(boolean admin) {
         this.isAdmin = admin;
-    }
-
-    public List<Repairs> get_repairs() {
-        return _repairs;
-    }
-
-    public void set_repairs(List<Repairs> _repairs) {
-        this._repairs = _repairs;
     }
 
     public int getIdEmployee() {

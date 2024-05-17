@@ -17,7 +17,8 @@ public class EmployeeDAO implements DAO<Employee,String> {
     private static final String FINDBYID = "SELECT e.idEmployee, e.dni, e.name, e.password ,e.Admin FROM employees AS e WHERE e.idEmployee = ?";
     private static final String FINDBYNAME = "SELECT e.IdEmployee, e.dni, e.name, e.Password, e.Admin FROM employees AS e WHERE e.name = ?";
     private static final String INSERT = "INSERT INTO employees (dni, name, password) VALUES (?, ?, ?)";
-    private static final String UPDATE = "UPDATE employees SET name=? WHERE idEmployee=?";
+    private static final String UPDATE = "UPDATE employees SET name=?, password=?, Admin=? WHERE idEmployee=?";
+    private static final String UPDATE_ADMIN_STATUS = "UPDATE employees SET Admin=? WHERE IdEmployee=?";
     private static final String DELETE = "DELETE FROM employees WHERE idEmployee=?";
     private static final String ADMIN = "SELECT e.idEmployee, e.dni, e.name, e.password, e.Admin FROM employees AS e WHERE e.Admin=?";
 
@@ -46,7 +47,9 @@ public class EmployeeDAO implements DAO<Employee,String> {
                 } else {
                     try (PreparedStatement pst = connection.prepareStatement(UPDATE)) {
                         pst.setString(1, entity.getName());
-                        pst.setInt(2, entity.getIdEmployee());
+                        pst.setString(2, entity.getPassword());
+                        pst.setBoolean(3, entity.isAdmin());
+                        pst.setInt(4, entity.getIdEmployee());
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -173,6 +176,13 @@ public class EmployeeDAO implements DAO<Employee,String> {
             e.printStackTrace();
         }
         return result;
+    }
+    public void updateAdminStatus(int employeeId, boolean isAdmin) throws SQLException {
+        try (PreparedStatement pst = connection.prepareStatement(UPDATE_ADMIN_STATUS)) {
+            pst.setBoolean(1, isAdmin);
+            pst.setInt(2, employeeId);
+            pst.executeUpdate();
+        }
     }
 
     @Override

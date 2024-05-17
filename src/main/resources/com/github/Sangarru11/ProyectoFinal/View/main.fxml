@@ -29,7 +29,7 @@
                   <Font size="17.0" />
                </font>
             </Text>
-            <TextField fx:id="txtUsername" prefHeight="25.0" prefWidth="242.0" text="Juan Perez">
+            <TextField fx:id="txtUsername" prefHeight="25.0" prefWidth="242.0" text="Santiago">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>

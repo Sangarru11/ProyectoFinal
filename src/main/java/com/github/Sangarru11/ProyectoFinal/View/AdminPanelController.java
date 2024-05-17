@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,6 +33,8 @@ public class AdminPanelController extends Controller implements Initializable {
     private TableColumn<Repairs, String> columnRepairState;
     @FXML
     private TableColumn<Repairs, String> columnPlateNumber;
+    @FXML
+    private TableColumn<Repairs, String> columnIdMechanic;
     private ObservableList<Repairs> repairs;
     @Override
     public void onOpen(Object input) throws IOException {
@@ -69,7 +72,6 @@ public class AdminPanelController extends Controller implements Initializable {
                         throw new RuntimeException(e);
                     }
                 }
-
             });
             return row ;
         });
@@ -160,7 +162,7 @@ public class AdminPanelController extends Controller implements Initializable {
     }
     @FXML
     public void setAdmin() throws IOException{
-
+        changeScene(Scenes.AdminController,null);
     }
     @FXML
     public void ReturnToLogin() throws IOException {

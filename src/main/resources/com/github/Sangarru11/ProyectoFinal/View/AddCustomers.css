@@ -1,0 +1,23 @@
+.label-text {
+    -fx-fill: white;
+}
+
+.input-field {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #34495e;
+    -fx-padding: 5;
+    -fx-background-color: #ecf0f1;
+}
+
+.input-field:focused {
+    -fx-border-color: #3498db;
+}
+
+.button-image {
+    -fx-cursor: hand;
+}
+
+.root {
+    -fx-background-color: grey;
+}

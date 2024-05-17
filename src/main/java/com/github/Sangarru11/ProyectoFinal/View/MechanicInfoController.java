@@ -1,6 +1,9 @@
 package com.github.Sangarru11.ProyectoFinal.View;
 
 import com.github.Sangarru11.ProyectoFinal.App;
+import com.github.Sangarru11.ProyectoFinal.model.DAO.EmployeeDAO;
+import com.github.Sangarru11.ProyectoFinal.model.DAO.RepairEmployeeDAO;
+import com.github.Sangarru11.ProyectoFinal.model.DAO.RepairsDAO;
 import com.github.Sangarru11.ProyectoFinal.model.entity.Employee;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -9,11 +12,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -52,6 +57,24 @@ public class MechanicInfoController extends Controller implements Initializable 
         columnIDMechanic.setCellValueFactory(data -> new SimpleIntegerProperty(data.getValue().getIdEmployee()).asObject().asString());
         columnDNIMechanic.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDNI()));
         columnNameMechanic.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getName()));
+    }
+    @FXML
+    public void DeleteMechanic() {
+        Employee selectedEmployee = tableView.getSelectionModel().getSelectedItem();
+        RepairEmployeeDAO repairEmployeeDAO = RepairEmployeeDAO.build();
+        int idEmployee = selectedEmployee.getIdEmployee();
+        int idRepair = Integer.parseInt(columnIDMechanic.getCellData(selectedEmployee));
+
+        if (selectedEmployee != null) {
+            try {
+                repairEmployeeDAO.deleteAssignment(idEmployee, idRepair);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("El mecanico se ha desasignado correctamente");
+                alert.show();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML

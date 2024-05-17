@@ -8,12 +8,12 @@ import com.github.Sangarru11.ProyectoFinal.model.entity.Repairs;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 public class RepairEmployeeDAO implements DAO<RepairEmployee,String> {
     private static final String INSERTEMPLOYEEREPAIRS = "INSERT INTO repair_employee (IdRepair, IdEmployee) VALUES (?, ?)";
+    private static final String DELETE = "DELETE FROM repair_employee WHERE IdEmployee=?";
     private Connection connection;
 
     public RepairEmployeeDAO() {
@@ -36,11 +36,25 @@ public class RepairEmployeeDAO implements DAO<RepairEmployee,String> {
 
     @Override
     public RepairEmployee delete(RepairEmployee entity) throws SQLException {
-        return null;
+        if (entity != null) {
+            try (PreparedStatement pst = connection.prepareStatement(DELETE)) {
+                pst.setInt(1, entity.getRepairId());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return entity;
     }
-
+    public void deleteAssignment(int idEmployee, int idRepair) throws SQLException {
+        try (PreparedStatement pst = connection.prepareStatement(DELETE)) {
+            pst.setInt(1, idEmployee);
+            pst.setInt(2, idRepair);
+            pst.executeUpdate();
+        }
+    }
     @Override
-    public Employee adminManage(Employee entity) throws SQLException {
+    public Employee adminManage(Employee entity){
         return null;
     }
 
@@ -73,6 +87,7 @@ public class RepairEmployeeDAO implements DAO<RepairEmployee,String> {
     public RepairEmployee findByName(String key) {
         return null;
     }
+
 
     @Override
     public void close() throws IOException {
