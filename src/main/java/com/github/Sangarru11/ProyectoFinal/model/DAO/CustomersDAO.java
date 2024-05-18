@@ -109,6 +109,7 @@ public class CustomersDAO implements DAO<Customers,String> {
             try (ResultSet res = pst.executeQuery()){
                 while (res.next()){
                     Customers c = new Customers();
+                    c.setIdCustomer(res.getInt("idCustomer"));
                     c.setDNI(res.getString("DNI"));
                     c.setName(res.getString("Name"));
                     c.setPhoneNumber(res.getString("PhoneNumber"));

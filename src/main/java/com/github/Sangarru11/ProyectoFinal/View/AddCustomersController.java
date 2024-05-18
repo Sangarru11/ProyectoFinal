@@ -22,11 +22,12 @@ public class AddCustomersController extends Controller implements Initializable 
     private TextField txtPhoneNumber;
     @FXML
     private TextField txtDNI;
-    @FXML
-    private TextField txtPlateNumber;
+    private String plateNumber;
     @Override
     public void onOpen(Object input) throws IOException {
-
+        if (input instanceof String) {
+            this.plateNumber = (String) input;
+        }
     }
 
     @Override
@@ -55,10 +56,9 @@ public class AddCustomersController extends Controller implements Initializable 
         newCustomer.setPhoneNumber(PhoneNumber);
         String DNI = txtDNI.getText();
         newCustomer.setDNI(DNI);
-        String PlateNumber = txtPlateNumber.getText();
-        newCustomer.setPlateNumber(PlateNumber);
+        newCustomer.setPlateNumber(plateNumber);
 
-        Customers customers = CustomersDAO.build().findByDNI(DNI);
+            Customers customers = CustomersDAO.build().findByDNI(DNI);
         if (customers != null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("El cliente ya existe en la base de datos.");
