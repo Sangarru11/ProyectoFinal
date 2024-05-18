@@ -11,6 +11,7 @@ public enum Scenes {
     SelectMechanic("View/SelectMechanic.fxml"),
     CreateRepair("View/CreateRepair.fxml"),
     AdminController("View/AdminManager.fxml"),
+    CustomersListController("View/CustomerList.fxml"),
     AdminPanel("View/AdminPanel.fxml");
 
     private String url;

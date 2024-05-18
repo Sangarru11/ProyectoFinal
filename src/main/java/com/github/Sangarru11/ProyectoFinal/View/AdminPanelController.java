@@ -12,11 +12,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.image.Image;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -33,8 +32,6 @@ public class AdminPanelController extends Controller implements Initializable {
     private TableColumn<Repairs, String> columnRepairState;
     @FXML
     private TableColumn<Repairs, String> columnPlateNumber;
-    @FXML
-    private TableColumn<Repairs, String> columnIdMechanic;
     private ObservableList<Repairs> repairs;
     @Override
     public void onOpen(Object input) throws IOException {
@@ -93,20 +90,6 @@ public class AdminPanelController extends Controller implements Initializable {
         });
         columnIDRepair.setCellValueFactory(repairs -> new SimpleIntegerProperty(repairs.getValue().getIdRepair()).asObject().asString());
         columnIDRepair.setCellFactory(TextFieldTableCell.forTableColumn());
-        columnIDRepair.setOnEditCommit(event -> {
-            if(event.getNewValue()== event.getOldValue()){
-                return;
-            }
-            if(event.getNewValue().length()<=60) {
-                Repairs repairs = event.getRowValue();
-                repairs.setDescription(event.getNewValue());
-                RepairsDAO.build().save(repairs);
-            }else{
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Te has pasao!!!!!");
-                alert.show();
-            }
-        });
         columnRepairDate.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getDate()));
         columnRepairDate.setCellFactory(TextFieldTableCell.forTableColumn());
         columnRepairDate.setOnEditCommit(event -> {
@@ -157,6 +140,18 @@ public class AdminPanelController extends Controller implements Initializable {
         });
     }
     @FXML
+    public void deleteRepair() throws SQLException {
+        Repairs repair = tableView.getSelectionModel().getSelectedItem();
+        if (repair != null) {
+            repairs.remove(repair);
+            RepairsDAO.build().delete(repair);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Por favor, selecciona una reparación para eliminar.");
+            alert.show();
+        }
+    }
+    @FXML
     public void CreateRepair() throws IOException{
         changeScene(Scenes.CreateRepair,null);
     }
@@ -170,7 +165,7 @@ public class AdminPanelController extends Controller implements Initializable {
     }
     @FXML
     public void ChangeAddCustomer() throws IOException{
-        changeScene(Scenes.AddCustomersPanel,null);
+        changeScene(Scenes.CustomersListController,null);
     }
     @FXML
     public void ChangeAssingRepairs() throws IOException{
