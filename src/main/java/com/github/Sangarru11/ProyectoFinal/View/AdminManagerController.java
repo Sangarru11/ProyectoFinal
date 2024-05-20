@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 public class AdminManagerController extends Controller implements Initializable {
     @FXML
     private ComboBox<String> EmployeeComboBox;
+
     @Override
     public void onOpen(Object input) throws IOException {
 
@@ -27,12 +28,25 @@ public class AdminManagerController extends Controller implements Initializable 
     public void onClose(Object output) {
 
     }
+
+    /**
+     * Método para inicializar la ventana.
+     * Se carga la lista de empleados y se establece en el ComboBox.
+     *
+     * @param url            La URL utilizada para resolver rutas relativas para el objeto raíz, o null si no se ha proporcionado ninguna URL.
+     * @param resourceBundle El recurso que se utiliza para localizar el objeto raíz, o null si no se ha proporcionado ningún recurso.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<Employee> employees = EmployeeDAO.build().findbyAll();
         List<String> employeeNames = employees.stream().map(Employee::getName).collect(Collectors.toList());
         EmployeeComboBox.setItems(FXCollections.observableArrayList(employeeNames));
     }
+
+    /**
+     * Método para asignar un empleado como administrador.
+     * Se selecciona el nombre del empleado del ComboBox, se busca en la base de datos y se actualiza su estado de administrador.
+     */
     @FXML
     private void AssignAdmin() {
         String employeeName = EmployeeComboBox.getValue();
@@ -41,7 +55,7 @@ public class AdminManagerController extends Controller implements Initializable 
 
         if (selectedEmployee != null) {
             selectedEmployee.setAdmin(true);
-            try{
+            try {
                 employeeDAO.updateAdminStatus(selectedEmployee.getIdEmployee(), true);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("El empleado ahora es administrador");
@@ -51,6 +65,11 @@ public class AdminManagerController extends Controller implements Initializable 
             }
         }
     }
+
+    /**
+     * Método para remover el estado de administrador de un empleado.
+     * Se selecciona el nombre del empleado del ComboBox, se busca en la base de datos y se actualiza su estado de administrador.
+     */
     @FXML
     private void RemoveAdmin() {
         String employeeName = EmployeeComboBox.getValue();
@@ -59,7 +78,7 @@ public class AdminManagerController extends Controller implements Initializable 
 
         if (selectedEmployee != null) {
             selectedEmployee.setAdmin(false);
-            try{
+            try {
                 employeeDAO.updateAdminStatus(selectedEmployee.getIdEmployee(), false);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("El empleado ya no es administrador");
@@ -69,8 +88,13 @@ public class AdminManagerController extends Controller implements Initializable 
             }
         }
     }
+
+    /**
+     * Método para eliminar un empleado.
+     * Se selecciona el nombre del empleado del ComboBox, se busca en la base de datos y se elimina.
+     */
     @FXML
-    private void RemoveEmployee(){
+    private void RemoveEmployee() {
         String employeeName = EmployeeComboBox.getValue();
         EmployeeDAO employeeDAO = EmployeeDAO.build();
         Employee selectedEmployee = employeeDAO.findByName(employeeName);
@@ -87,9 +111,13 @@ public class AdminManagerController extends Controller implements Initializable 
         }
     }
 
-
+    /**
+     * Método para volver al panel de administración.
+     *
+     * @throws IOException Si ocurre un error de entrada/salida.
+     */
     @FXML
-    private void ReturnAdminPanel() throws IOException{
-        AssignRepairsPanelController.changeScene(Scenes.AdminPanel,null);
+    private void ReturnAdminPanel() throws IOException {
+        AssignRepairsPanelController.changeScene(Scenes.AdminPanel, null);
     }
 }

@@ -29,7 +29,13 @@ public class MainController extends Controller implements Initializable {
 
     }
 
-    public static void changeScene(Scenes scene,Object data) throws IOException {
+    /**
+     * Método para cambiar la escena actual.
+     * @param scene La nueva escena a la que se cambiará.
+     * @param data Los datos que se pasarán a la nueva escena.
+     * @throws IOException Si ocurre un error de entrada/salida.
+     */
+    public static void changeScene(Scenes scene, Object data) throws IOException {
         View view = MainController.loadFXML(scene);
         Scene _scene = new Scene(view.scene, 1075, 720);
         App.currentController = view.controller;
@@ -40,28 +46,46 @@ public class MainController extends Controller implements Initializable {
 
     @Override
     public void onClose(Object output) {
-
+        // Método para manejar acciones cuando se cierra la ventana.
+        // No se realiza ninguna acción específica con el parámetro de salida en este método.
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        // Método para inicializar la ventana.
+        // No se realiza ninguna acción específica durante la inicialización en este método.
     }
+
+    /**
+     * Método para cargar una vista de FXML.
+     * @param scenes La escena que se cargará.
+     * @return Un objeto View que contiene la escena y su controlador.
+     * @throws IOException Si ocurre un error de entrada/salida.
+     */
     public static View loadFXML(Scenes scenes) throws IOException {
         String url = scenes.getURL();
         FXMLLoader loader = new FXMLLoader(App.class.getResource(url));
         Parent p = loader.load();
         Controller c = loader.getController();
         View view = new View();
-        view.scene=p;
-        view.controller=c;
+        view.scene = p;
+        view.controller = c;
         return view;
     }
 
+    /**
+     * Método para cerrar la aplicación.
+     */
     @FXML
-    private void closeApp(){
+    private void closeApp() {
         System.exit(0);
     }
 
+    /**
+     * Método para manejar el inicio de sesión.
+     * Se valida el nombre de usuario y la contraseña y se cambia a la escena correspondiente.
+     * @throws IOException Si ocurre un error de entrada/salida.
+     */
     @FXML
     public void Login() throws IOException {
         String username = txtUsername.getText();
@@ -76,17 +100,22 @@ public class MainController extends Controller implements Initializable {
                 } else {
                     changeScene(Scenes.PrinPanel, null);
                 }
-            }else {
+            } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Contraseña Invalida");
+                alert.setContentText("Contraseña inválida.");
                 alert.show();
             }
-            }else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Nombre de usuario invalido");
-                alert.show();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Nombre de usuario inválido.");
+            alert.show();
         }
     }
+
+    /**
+     * Método para cambiar a la escena del registro de usuarios.
+     * @throws IOException Si ocurre un error de entrada/salida.
+     */
     @FXML
     public void Register() throws IOException {
         changeScene(Scenes.REGISTERPANEL, null);

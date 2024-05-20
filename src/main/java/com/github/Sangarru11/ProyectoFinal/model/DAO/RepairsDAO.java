@@ -21,10 +21,16 @@ public class RepairsDAO implements DAO<Repairs,String> {
     private static final String DELETE = "DELETE FROM repairs WHERE idRepair=?";
 
     private Connection connection;
+
     public RepairsDAO() {
         connection = ConnectionMariaDB.getConnection();
     }
 
+    /**
+     * Añade una nueva reparación a la base de datos o actualiza sus datos si ya existe.
+     * @param entity la reparación a guardar o actualizar
+     * @return la reparación guardada o actualizada
+     */
     @Override
     public Repairs save(Repairs entity) {
         Repairs result = entity;
@@ -58,6 +64,12 @@ public class RepairsDAO implements DAO<Repairs,String> {
         }
         return result;
     }
+
+    /**
+     * Elimina una reparación de la base de datos.
+     * @param entity la reparación a eliminar
+     * @return la reparación eliminada
+     */
     @Override
     public Repairs delete(Repairs entity) throws SQLException {
         if (entity != null) {
@@ -71,11 +83,16 @@ public class RepairsDAO implements DAO<Repairs,String> {
         return entity;
     }
 
-
     @Override
     public Employee adminManage(Employee entity) throws SQLException {
         return null;
     }
+
+    /**
+     * Busca una reparación por número de placa.
+     * @param key el número de placa a buscar
+     * @return la reparación encontrada o null si no se encuentra
+     */
     @Override
     public Repairs findByPlateNumber(String key){
         Repairs result = null;
@@ -97,6 +114,11 @@ public class RepairsDAO implements DAO<Repairs,String> {
         return result;
     }
 
+    /**
+     * Busca una reparación por ID.
+     * @param key el ID de la reparación a buscar
+     * @return la reparación encontrada o null si no se encuentra
+     */
     @Override
     public Repairs findById(String key) {
         Repairs result = null;
@@ -118,6 +140,10 @@ public class RepairsDAO implements DAO<Repairs,String> {
         }
         return result;
     }
+    /**
+     * Busca todas las reparaciones en la base de datos.
+     * @return una lista de todas las reparaciones encontradas
+     */
     @Override
     public List<Repairs> findbyAll() {
         List<Repairs> result = new ArrayList<>();
@@ -138,6 +164,12 @@ public class RepairsDAO implements DAO<Repairs,String> {
         }
         return result;
     }
+
+    /**
+     * Busca una reparación por fecha en la base de datos.
+     * @param key la fecha de la reparación a buscar
+     * @return la reparación encontrada o null si no se encuentra
+     */
     @Override
     public Repairs findByDate(String key){
         Repairs result = null;
@@ -158,6 +190,7 @@ public class RepairsDAO implements DAO<Repairs,String> {
         }
         return result;
     }
+
     @Override
     public Repairs findByDNI(String key) {
         return null;
@@ -176,6 +209,10 @@ public class RepairsDAO implements DAO<Repairs,String> {
         return new RepairsDAO();
     }
 }
+    /**
+     * Esta clase por asi decirlo hereda de Repairs y obtiene los empleados con la relacion N:M
+     * ademas de obtener los datos de reparaciones
+     */
 class RepairsLazy extends Repairs{
     private static final String FINDEMPLOYEESBYREPAIR = "SELECT e.* FROM repairs r,repair_employee re, employees e WHERE r.IdRepair=re.IdRepair AND re.IdEmployee=e.IdEmployee AND r.IdRepair=?";
     public RepairsLazy() {
@@ -184,27 +221,31 @@ class RepairsLazy extends Repairs{
     public RepairsLazy(int idRepair, List<Employee> employees, String date, String status, String description, String plateNumber) {
         super(idRepair, employees, date, status, description, plateNumber);
     }
+    /**
+     * Obtiene la lista de empleados asociados a esta reparación de la base de datos.
+     * @return la lista de empleados asociados
+     */
     @Override
-        public List<Employee> getEmployees(){
-            if(super.getEmployees()==null){
-                Connection connection = ConnectionMariaDB.getConnection();
-                List<Employee> result = new ArrayList<>();
-                try (PreparedStatement pst = connection.prepareStatement(FINDEMPLOYEESBYREPAIR)) {
-                    pst.setInt(1, getIdRepair());
-                    try (ResultSet res = pst.executeQuery()) {
-                        while (res.next()) {
-                            Employee e = new Employee();
-                            e.setIdEmployee(res.getInt("idEmployee"));
-                            e.setDNI(res.getString("DNI"));
-                            e.setName(res.getString("name"));
-                            result.add(e);
-                        }
+    public List<Employee> getEmployees(){
+        if(super.getEmployees()==null){
+            Connection connection = ConnectionMariaDB.getConnection();
+            List<Employee> result = new ArrayList<>();
+            try (PreparedStatement pst = connection.prepareStatement(FINDEMPLOYEESBYREPAIR)) {
+                pst.setInt(1, getIdRepair());
+                try (ResultSet res = pst.executeQuery()) {
+                    while (res.next()) {
+                        Employee e = new Employee();
+                        e.setIdEmployee(res.getInt("idEmployee"));
+                        e.setDNI(res.getString("DNI"));
+                        e.setName(res.getString("name"));
+                        result.add(e);
                     }
-                    super.setEmployees(result);
-                }catch (SQLException e) {
-                    e.printStackTrace();
                 }
+                super.setEmployees(result);
+            }catch (SQLException e) {
+                e.printStackTrace();
             }
-            return super.getEmployees();
         }
+        return super.getEmployees();
+    }
 }

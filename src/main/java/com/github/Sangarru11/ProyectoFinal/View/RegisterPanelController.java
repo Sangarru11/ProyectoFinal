@@ -28,7 +28,13 @@ public class RegisterPanelController extends Controller implements Initializable
     public void onOpen(Object input) throws IOException {
 
     }
-    public static void changeScene(Scenes scene,Object data) throws IOException {
+    /**
+     * Método para cambiar la escena actual.
+     * @param scene La nueva escena a la que se cambiará.
+     * @param data Los datos que se pasarán a la nueva escena.
+     * @throws IOException Si ocurre un error de entrada/salida.
+     */
+    public static void changeScene(Scenes scene, Object data) throws IOException {
         View view = MainController.loadFXML(scene);
         Scene _scene = new Scene(view.scene, 640, 480);
         App.currentController = view.controller;
@@ -36,16 +42,19 @@ public class RegisterPanelController extends Controller implements Initializable
         App.stage.setScene(_scene);
         App.stage.show();
     }
+
     @Override
     public void onClose(Object output) {
-
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
+    /**
+     * Método para registrar un nuevo empleado.
+     * @throws IOException Si ocurre un error de entrada/salida.
+     */
     @FXML
     private void Register() throws IOException {
         Employee newEmployee = new Employee();
@@ -63,14 +72,20 @@ public class RegisterPanelController extends Controller implements Initializable
             alert.show();
             return;
         }
+
         EmployeeDAO.build().save(newEmployee);
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setContentText("El empleado se ha añadido correctamente");
         alert.show();
     }
+
+    /**
+     * Método para cambiar a la escena de inicio de sesión.
+     * @throws IOException Si ocurre un error de entrada/salida.
+     */
     @FXML
     public void ReturnToLogin() throws IOException {
-        changeScene(Scenes.MAIN,null);
+        changeScene(Scenes.MAIN, null);
     }
 }

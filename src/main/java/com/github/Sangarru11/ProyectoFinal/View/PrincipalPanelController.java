@@ -34,6 +34,11 @@ public class PrincipalPanelController extends Controller implements Initializabl
     @FXML
     private TableColumn<Repairs, String> columnPlateNumber;
     private ObservableList<Repairs> repairs;
+    /**
+     * Metodo para listar los datos de la base de datos.
+     * @param input los datos que se van a listar.
+     * @throws IOException Si ocurre un error de entrada/salida.
+     */
     @Override
     public void onOpen(Object input) throws IOException {
         List<Repairs> repairs = RepairsDAO.build().findbyAll();
@@ -45,7 +50,13 @@ public class PrincipalPanelController extends Controller implements Initializabl
     public void onClose(Object output) {
 
     }
-    public static void changeScene(Scenes scene,Object data) throws IOException {
+    /**
+     * Método para cambiar la escena actual.
+     * @param scene La nueva escena a la que se cambiará.
+     * @param data Los datos que se pasarán a la nueva escena.
+     * @throws IOException Si ocurre un error de entrada/salida.
+     */
+    public static void changeScene(Scenes scene, Object data) throws IOException {
         View view = MainController.loadFXML(scene);
         Scene _scene = new Scene(view.scene, 640, 480);
         App.currentController = view.controller;
@@ -57,44 +68,59 @@ public class PrincipalPanelController extends Controller implements Initializabl
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tableView.setEditable(true);
+
+        // Configuración de la columna ID de reparación.
         columnIDRepair.setCellValueFactory(repairs -> new SimpleIntegerProperty(repairs.getValue().getIdRepair()).asObject().asString());
-        columnDescription.setCellValueFactory(repairs-> new SimpleStringProperty(repairs.getValue().getDescription()));
+
+        // Configuración de la columna Descripción.
+        columnDescription.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getDescription()));
+
+        // Configuración de la columna Fecha de reparación.
         columnRepairDate.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getDate()));
+
+        // Configuración de la columna Estado de reparación.
         columnRepairState.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getStatus()));
         columnRepairState.setCellFactory(TextFieldTableCell.forTableColumn());
         columnRepairState.setOnEditCommit(event -> {
-            if(event.getNewValue()== event.getOldValue()){
+            if (event.getNewValue().equals(event.getOldValue())) {
                 return;
             }
-            if(event.getNewValue().length()<=60) {
+            if (event.getNewValue().length() <= 60) {
                 Repairs repairs = event.getRowValue();
                 repairs.setDescription(event.getNewValue());
                 RepairsDAO.build().save(repairs);
-            }else{
+            } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Te has pasao!!!!!");
+                alert.setContentText("Te has pasado!!!!!");
                 alert.show();
             }
         });
+
+        // Configuración de la columna Número de placa.
         columnPlateNumber.setCellValueFactory(repairs -> new SimpleStringProperty(repairs.getValue().getPlateNumber()));
         columnDescription.setCellFactory(TextFieldTableCell.forTableColumn());
         columnDescription.setOnEditCommit(event -> {
-            if(event.getNewValue()== event.getOldValue()){
+            if (event.getNewValue().equals(event.getOldValue())) {
                 return;
             }
-            if(event.getNewValue().length()<=60) {
+            if (event.getNewValue().length() <= 60) {
                 Repairs repairs = event.getRowValue();
                 repairs.setDescription(event.getNewValue());
                 RepairsDAO.build().save(repairs);
-            }else{
+            } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Te has pasao!!!!!");
+                alert.setContentText("Te has pasado!!!!!");
                 alert.show();
             }
         });
     }
+
+    /**
+     * Método para cambiar a la escena de inicio de sesión.
+     * @throws IOException Si ocurre un error de entrada/salida.
+     */
     @FXML
     public void ReturnToLogin() throws IOException {
-        changeScene(Scenes.MAIN,null);
+        changeScene(Scenes.MAIN, null);
     }
 }
