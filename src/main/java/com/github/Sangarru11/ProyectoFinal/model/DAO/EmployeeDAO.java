@@ -23,10 +23,16 @@ public class EmployeeDAO implements DAO<Employee,String> {
     private static final String ADMIN = "SELECT e.idEmployee, e.dni, e.name, e.password, e.Admin FROM employees AS e WHERE e.Admin=?";
 
     private Connection connection;
+
     public EmployeeDAO() {
         connection = ConnectionMariaDB.getConnection();
     }
 
+    /**
+     * Añade un nuevo empleado a la base de datos o actualiza sus datos si ya existe.
+     * @param entity el empleado a guardar o actualizar
+     * @return el empleado guardado o actualizado
+     */
     @Override
     public Employee save(Employee entity) {
         Employee result = entity;
@@ -59,6 +65,11 @@ public class EmployeeDAO implements DAO<Employee,String> {
         return result;
     }
 
+    /**
+     * Elimina un empleado de la base de datos.
+     * @param entity el empleado a eliminar
+     * @return el empleado eliminado
+     */
     @Override
     public Employee delete(Employee entity) throws SQLException {
         if (entity != null) {
@@ -71,6 +82,12 @@ public class EmployeeDAO implements DAO<Employee,String> {
         }
         return entity;
     }
+
+    /**
+     * Cambia el estado de administrador de un empleado en la base de datos.
+     * @param entity el empleado cuyo estado de administrador se cambiará
+     * @return el empleado con su estado de administrador actualizado
+     */
     @Override
     public Employee adminManage(Employee entity) throws SQLException {
         if (entity != null) {
@@ -90,6 +107,11 @@ public class EmployeeDAO implements DAO<Employee,String> {
         return null;
     }
 
+    /**
+     * Busca un empleado por su ID.
+     * @param key el ID del empleado a buscar
+     * @return el empleado encontrado o null si no se encuentra
+     */
     @Override
     public Employee findById(String key) {
         Employee result = null;
@@ -111,6 +133,10 @@ public class EmployeeDAO implements DAO<Employee,String> {
         return result;
     }
 
+    /**
+     * Busca todos los empleados en la base de datos.
+     * @return una lista de todos los empleados encontrados
+     */
     @Override
     public List<Employee> findbyAll() {
         List<Employee> result = new ArrayList<>();
@@ -127,14 +153,18 @@ public class EmployeeDAO implements DAO<Employee,String> {
         }catch (SQLException e) {
             e.printStackTrace();
         }
-            return result;
+        return result;
     }
-
     @Override
     public Employee findByDate(String key) {
         return null;
     }
 
+    /**
+     * Busca un empleado por su número de DNI.
+     * @param key el número de DNI del empleado a buscar
+     * @return el empleado encontrado o null si no se encuentra
+     */
     @Override
     public Employee findByDNI(String key) {
         Employee result = null;
@@ -156,6 +186,11 @@ public class EmployeeDAO implements DAO<Employee,String> {
         return result;
     }
 
+    /**
+     * Busca un empleado por su nombre.
+     * @param key el nombre del empleado a buscar
+     * @return el empleado encontrado o null si no se encuentra
+     */
     @Override
     public Employee findByName(String key) {
         Employee result = null;
@@ -177,6 +212,12 @@ public class EmployeeDAO implements DAO<Employee,String> {
         }
         return result;
     }
+    /**
+     * Actualiza el estado de administrador de un empleado en la base de datos.
+     * @param employeeId el ID del empleado
+     * @param isAdmin el nuevo estado de administrador
+     * @throws SQLException si hay un error al ejecutar la consulta SQL
+     */
     public void updateAdminStatus(int employeeId, boolean isAdmin) throws SQLException {
         try (PreparedStatement pst = connection.prepareStatement(UPDATE_ADMIN_STATUS)) {
             pst.setBoolean(1, isAdmin);

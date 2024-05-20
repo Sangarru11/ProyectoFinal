@@ -19,6 +19,11 @@ public class RepairEmployeeDAO implements DAO<RepairEmployee,String> {
     public RepairEmployeeDAO() {
         connection = ConnectionMariaDB.getConnection();
     }
+    /**
+     * Asigna un empleado a una reparación en la base de datos.
+     * @param IdRepair el ID de la reparación
+     * @param IdEmployee el ID del empleado
+     */
     public void assignEmployeeToRepair(int IdRepair, int IdEmployee) {
         try (PreparedStatement pst = connection.prepareStatement(INSERTEMPLOYEEREPAIRS)) {
             pst.setInt(1, IdRepair);
@@ -28,12 +33,18 @@ public class RepairEmployeeDAO implements DAO<RepairEmployee,String> {
             e.printStackTrace();
         }
     }
-    
+
     @Override
     public RepairEmployee save(RepairEmployee entity) {
         return null;
     }
 
+    /**
+     * Elimina una asignación de empleado a reparación de la base de datos.
+     * @param entity la entidad RepairEmployee a eliminar
+     * @return la entidad RepairEmployee eliminada
+     * @throws SQLException si ocurre algún error de SQL
+     */
     @Override
     public RepairEmployee delete(RepairEmployee entity) throws SQLException {
         if (entity != null) {
@@ -46,6 +57,13 @@ public class RepairEmployeeDAO implements DAO<RepairEmployee,String> {
         }
         return entity;
     }
+
+    /**
+     * Elimina una asignación de empleado a reparación de la base de datos.
+     * @param idEmployee el ID del empleado
+     * @param idRepair el ID de la reparación
+     * @throws SQLException si ocurre algún error de SQL
+     */
     public void deleteAssignment(int idEmployee, int idRepair) throws SQLException {
         try (PreparedStatement pst = connection.prepareStatement(DELETE)) {
             pst.setInt(1, idEmployee);

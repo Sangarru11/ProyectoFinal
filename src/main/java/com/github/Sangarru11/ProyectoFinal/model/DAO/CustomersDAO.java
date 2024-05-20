@@ -27,6 +27,11 @@ public class CustomersDAO implements DAO<Customers,String> {
         connection = ConnectionMariaDB.getConnection();
     }
 
+    /**
+     * Añade un nuevo cliente a la base de datos o actualiza su nombre si ya existe.
+     * @param entity el cliente a guardar o actualizar
+     * @return el cliente guardado o actualizado
+     */
     @Override
     public Customers save(Customers entity) {
         Customers result = entity;
@@ -44,7 +49,7 @@ public class CustomersDAO implements DAO<Customers,String> {
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                }else{
+                } else {
                     try (PreparedStatement pst = connection.prepareStatement(UPDATE)) {
                         pst.setString(1, entity.getName());
                         pst.setInt(2, entity.getIdCustomer());
@@ -57,6 +62,11 @@ public class CustomersDAO implements DAO<Customers,String> {
         return result;
     }
 
+    /**
+     * Elimina un cliente de la base de datos.
+     * @param entity el cliente a eliminar
+     * @return el cliente eliminado
+     */
     @Override
     public Customers delete(Customers entity) {
         if (entity != null) {
@@ -69,17 +79,20 @@ public class CustomersDAO implements DAO<Customers,String> {
         }
         return entity;
     }
-
     @Override
     public Employee adminManage(Employee entity) throws SQLException {
         return null;
     }
-
     @Override
     public Repairs findByPlateNumber(String key) {
         return null;
     }
 
+    /**
+     * Busca un cliente por su ID.
+     * @param key el ID del cliente a buscar
+     * @return el cliente encontrado o null si no se encuentra
+     */
     @Override
     public Customers findById(String key) {
         Customers result = null;
@@ -102,6 +115,10 @@ public class CustomersDAO implements DAO<Customers,String> {
         return result;
     }
 
+    /**
+     * Busca todos los clientes en la base de datos.
+     * @return una lista de todos los clientes encontrados
+     */
     @Override
     public List<Customers> findbyAll() {
         List<Customers> result = new ArrayList<>();
@@ -117,7 +134,7 @@ public class CustomersDAO implements DAO<Customers,String> {
                     result.add(c);
                 }
             }
-            }catch (SQLException e){
+        }catch (SQLException e){
             e.printStackTrace();
         }
         return result;
@@ -128,6 +145,11 @@ public class CustomersDAO implements DAO<Customers,String> {
         return null;
     }
 
+    /**
+     * Busca un cliente por su número de DNI.
+     * @param key el número de DNI del cliente a buscar
+     * @return el cliente encontrado o null si no se encuentra
+     */
     @Override
     public Customers findByDNI(String key) {
         Customers result = null;
@@ -149,6 +171,12 @@ public class CustomersDAO implements DAO<Customers,String> {
         }
         return result;
     }
+
+    /**
+     * Busca un cliente por su nombre.
+     * @param key el nombre del cliente a buscar
+     * @return el cliente encontrado o null si no se encuentra
+     */
     @Override
     public Customers findByName(String key) {
         Customers result = null;
